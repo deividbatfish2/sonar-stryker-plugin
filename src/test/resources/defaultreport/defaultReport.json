@@ -1,0 +1,1374 @@
+{
+  "files": {
+    "/media/deivid/Salvar AQUI/Documentos/Projetos/nodeJS/grafos/src/grafo/core/grafo.js": {
+      "language": "javascript",
+      "mutants": [
+        {
+          "id": "0",
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 16
+            },
+            "start": {
+              "column": 35,
+              "line": 5
+            }
+          },
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests construtor A quantidade mínima de vertices definidos deve ser maior que 1"
+        },
+        {
+          "id": "10",
+          "location": {
+            "end": {
+              "column": 61,
+              "line": 19
+            },
+            "start": {
+              "column": 13,
+              "line": 19
+            }
+          },
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests adicionarVertice O sistema não deve adicionar mais vertices do que o limite especificado"
+        },
+        {
+          "id": "11",
+          "location": {
+            "end": {
+              "column": 61,
+              "line": 19
+            },
+            "start": {
+              "column": 13,
+              "line": 19
+            }
+          },
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests adicionarVertice O sistema não deve adicionar mais vertices do que o limite especificado"
+        },
+        {
+          "id": "14",
+          "location": {
+            "end": {
+              "column": 113,
+              "line": 20
+            },
+            "start": {
+              "column": 29,
+              "line": 20
+            }
+          },
+          "mutatorName": "StringLiteral",
+          "replacement": "``",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests adicionarVertice O sistema não deve adicionar mais vertices do que o limite especificado"
+        },
+        {
+          "id": "3",
+          "location": {
+            "end": {
+              "column": 28,
+              "line": 6
+            },
+            "start": {
+              "column": 13,
+              "line": 6
+            }
+          },
+          "mutatorName": "EqualityOperator",
+          "replacement": "qtdVertices <= 1",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests adicionarVertice O sistema não deve adicionar mais vertices do que o limite especificado"
+        },
+        {
+          "id": "6",
+          "location": {
+            "end": {
+              "column": 91,
+              "line": 7
+            },
+            "start": {
+              "column": 29,
+              "line": 7
+            }
+          },
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests construtor A quantidade mínima de vertices definidos deve ser maior que 1"
+        },
+        {
+          "id": "2",
+          "location": {
+            "end": {
+              "column": 28,
+              "line": 6
+            },
+            "start": {
+              "column": 13,
+              "line": 6
+            }
+          },
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests construtor A quantidade mínima de vertices definidos deve ser maior que 1"
+        },
+        {
+          "id": "4",
+          "location": {
+            "end": {
+              "column": 28,
+              "line": 6
+            },
+            "start": {
+              "column": 13,
+              "line": 6
+            }
+          },
+          "mutatorName": "EqualityOperator",
+          "replacement": "qtdVertices >= 1",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests construtor A quantidade mínima de vertices definidos deve ser maior que 1"
+        },
+        {
+          "id": "5",
+          "location": {
+            "end": {
+              "column": 10,
+              "line": 8
+            },
+            "start": {
+              "column": 30,
+              "line": 6
+            }
+          },
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests construtor A quantidade mínima de vertices definidos deve ser maior que 1"
+        },
+        {
+          "id": "1",
+          "location": {
+            "end": {
+              "column": 28,
+              "line": 6
+            },
+            "start": {
+              "column": 13,
+              "line": 6
+            }
+          },
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests construtor Caso uma quantidade de vertices não seja informada, o valor deve ser setado como 10"
+        },
+        {
+          "id": "7",
+          "location": {
+            "end": {
+              "column": 27,
+              "line": 10
+            },
+            "start": {
+              "column": 25,
+              "line": 10
+            }
+          },
+          "mutatorName": "ArrayDeclaration",
+          "replacement": "[\"Stryker was here\"]",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests getVertice O sitema deve retornar o vertice pelo rótulo"
+        },
+        {
+          "id": "17",
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 46
+            },
+            "start": {
+              "column": 63,
+              "line": 35
+            }
+          },
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests conectarVerices O sistema deve conectar as arestas"
+        },
+        {
+          "id": "8",
+          "location": {
+            "end": {
+              "column": 40,
+              "line": 14
+            },
+            "start": {
+              "column": 36,
+              "line": 14
+            }
+          },
+          "mutatorName": "BooleanLiteral",
+          "replacement": "false",
+          "status": "Survived"
+        },
+        {
+          "id": "9",
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 27
+            },
+            "start": {
+              "column": 30,
+              "line": 18
+            }
+          },
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests adicionarVertice O sistema não deve adicionar mais vertices do que o limite especificado"
+        },
+        {
+          "id": "18",
+          "location": {
+            "end": {
+              "column": 97,
+              "line": 36
+            },
+            "start": {
+              "column": 13,
+              "line": 36
+            }
+          },
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests conectarVerices O sistema deve conectar as arestas"
+        },
+        {
+          "id": "19",
+          "location": {
+            "end": {
+              "column": 97,
+              "line": 36
+            },
+            "start": {
+              "column": 13,
+              "line": 36
+            }
+          },
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests conectarVerices Caso o primeiro vértice não exista, uma exceção deve ser lançada"
+        },
+        {
+          "id": "21",
+          "location": {
+            "end": {
+              "column": 54,
+              "line": 36
+            },
+            "start": {
+              "column": 13,
+              "line": 36
+            }
+          },
+          "mutatorName": "BooleanLiteral",
+          "replacement": "this.existeVertice(rotuloVerticeInicial)",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests conectarVerices O sistema deve conectar as arestas"
+        },
+        {
+          "id": "20",
+          "location": {
+            "end": {
+              "column": 97,
+              "line": 36
+            },
+            "start": {
+              "column": 13,
+              "line": 36
+            }
+          },
+          "mutatorName": "LogicalOperator",
+          "replacement": "!this.existeVertice(rotuloVerticeInicial) && !this.existeVertice(rotuloVerticeFinal)",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests conectarVerices Caso o primeiro vértice não exista, uma exceção deve ser lançada"
+        },
+        {
+          "id": "24",
+          "location": {
+            "end": {
+              "column": 89,
+              "line": 37
+            },
+            "start": {
+              "column": 29,
+              "line": 37
+            }
+          },
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests conectarVerices Caso o primeiro vértice não exista, uma exceção deve ser lançada"
+        },
+        {
+          "id": "22",
+          "location": {
+            "end": {
+              "column": 97,
+              "line": 36
+            },
+            "start": {
+              "column": 58,
+              "line": 36
+            }
+          },
+          "mutatorName": "BooleanLiteral",
+          "replacement": "this.existeVertice(rotuloVerticeFinal)",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests conectarVerices O sistema deve conectar as arestas"
+        },
+        {
+          "id": "23",
+          "location": {
+            "end": {
+              "column": 10,
+              "line": 38
+            },
+            "start": {
+              "column": 99,
+              "line": 36
+            }
+          },
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests conectarVerices Caso o primeiro vértice não exista, uma exceção deve ser lançada"
+        },
+        {
+          "id": "25",
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 52
+            },
+            "start": {
+              "column": 36,
+              "line": 48
+            }
+          },
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests getAdjacnencias O sistema deve retornar apenas vertices unidos por arestas"
+        },
+        {
+          "id": "28",
+          "location": {
+            "end": {
+              "column": 35,
+              "line": 55
+            },
+            "start": {
+              "column": 13,
+              "line": 55
+            }
+          },
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests conectarVerices O sistema deve conectar as arestas"
+        },
+        {
+          "id": "27",
+          "location": {
+            "end": {
+              "column": 35,
+              "line": 55
+            },
+            "start": {
+              "column": 13,
+              "line": 55
+            }
+          },
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests criarMatrizAdjacencia Caso exista uma matriz, o sistema não deve criar uma nova"
+        },
+        {
+          "id": "30",
+          "location": {
+            "end": {
+              "column": 10,
+              "line": 57
+            },
+            "start": {
+              "column": 37,
+              "line": 55
+            }
+          },
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests conectarVerices O sistema deve conectar as arestas"
+        },
+        {
+          "id": "29",
+          "location": {
+            "end": {
+              "column": 35,
+              "line": 55
+            },
+            "start": {
+              "column": 13,
+              "line": 55
+            }
+          },
+          "mutatorName": "BooleanLiteral",
+          "replacement": "this.matrizAdjacencia",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests conectarVerices O sistema deve conectar as arestas"
+        },
+        {
+          "id": "32",
+          "location": {
+            "end": {
+              "column": 40,
+              "line": 61
+            },
+            "start": {
+              "column": 13,
+              "line": 61
+            }
+          },
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests existeVerticeOrThrow Caso o vértice exista no grafo o valor verdadeiro deve ser retornado"
+        },
+        {
+          "id": "31",
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 66
+            },
+            "start": {
+              "column": 34,
+              "line": 60
+            }
+          },
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests existeVerticeOrThrow Caso o vértice não exista no grafo uma exceção deve ser lançada"
+        },
+        {
+          "id": "34",
+          "location": {
+            "end": {
+              "column": 40,
+              "line": 61
+            },
+            "start": {
+              "column": 13,
+              "line": 61
+            }
+          },
+          "mutatorName": "BooleanLiteral",
+          "replacement": "this.existeVertice(rotulo)",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests existeVerticeOrThrow Caso o vértice não exista no grafo uma exceção deve ser lançada"
+        },
+        {
+          "id": "35",
+          "location": {
+            "end": {
+              "column": 10,
+              "line": 63
+            },
+            "start": {
+              "column": 42,
+              "line": 61
+            }
+          },
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests existeVerticeOrThrow Caso o vértice não exista no grafo uma exceção deve ser lançada"
+        },
+        {
+          "id": "33",
+          "location": {
+            "end": {
+              "column": 40,
+              "line": 61
+            },
+            "start": {
+              "column": 13,
+              "line": 61
+            }
+          },
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests existeVerticeOrThrow Caso o vértice não exista no grafo uma exceção deve ser lançada"
+        },
+        {
+          "id": "36",
+          "location": {
+            "end": {
+              "column": 51,
+              "line": 62
+            },
+            "start": {
+              "column": 29,
+              "line": 62
+            }
+          },
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests existeVerticeOrThrow Caso o vértice não exista no grafo uma exceção deve ser lançada"
+        },
+        {
+          "id": "37",
+          "location": {
+            "end": {
+              "column": 20,
+              "line": 65
+            },
+            "start": {
+              "column": 16,
+              "line": 65
+            }
+          },
+          "mutatorName": "BooleanLiteral",
+          "replacement": "false",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests existeVerticeOrThrow Caso o vértice exista no grafo o valor verdadeiro deve ser retornado"
+        },
+        {
+          "id": "38",
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 71
+            },
+            "start": {
+              "column": 27,
+              "line": 68
+            }
+          },
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests existeVertice Deve retornar verdadeiro para casos onde o vertice buscado existe no grafo"
+        },
+        {
+          "id": "39",
+          "location": {
+            "end": {
+              "column": 45,
+              "line": 70
+            },
+            "start": {
+              "column": 16,
+              "line": 70
+            }
+          },
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests existeVertice Deve retornar verdadeiro para casos onde o vertice buscado existe no grafo"
+        },
+        {
+          "id": "41",
+          "location": {
+            "end": {
+              "column": 45,
+              "line": 70
+            },
+            "start": {
+              "column": 16,
+              "line": 70
+            }
+          },
+          "mutatorName": "EqualityOperator",
+          "replacement": "typeof indice !== 'undefined'",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests existeVertice Deve retornar verdadeiro para casos onde o vertice buscado existe no grafo"
+        },
+        {
+          "id": "40",
+          "location": {
+            "end": {
+              "column": 45,
+              "line": 70
+            },
+            "start": {
+              "column": 16,
+              "line": 70
+            }
+          },
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests existeVertice Deve retornar falso para casos onde o vertice buscado não existe no grafo"
+        },
+        {
+          "id": "42",
+          "location": {
+            "end": {
+              "column": 45,
+              "line": 70
+            },
+            "start": {
+              "column": 34,
+              "line": 70
+            }
+          },
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests existeVertice Deve retornar falso para casos onde o vertice buscado não existe no grafo"
+        },
+        {
+          "id": "45",
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 75
+            },
+            "start": {
+              "column": 25,
+              "line": 73
+            }
+          },
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "Survived"
+        },
+        {
+          "id": "43",
+          "location": {
+            "end": {
+              "column": 53,
+              "line": 70
+            },
+            "start": {
+              "column": 48,
+              "line": 70
+            }
+          },
+          "mutatorName": "BooleanLiteral",
+          "replacement": "true",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests existeVertice Deve retornar falso para casos onde o vertice buscado não existe no grafo"
+        },
+        {
+          "id": "44",
+          "location": {
+            "end": {
+              "column": 60,
+              "line": 70
+            },
+            "start": {
+              "column": 56,
+              "line": 70
+            }
+          },
+          "mutatorName": "BooleanLiteral",
+          "replacement": "false",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests existeVertice Deve retornar verdadeiro para casos onde o vertice buscado existe no grafo"
+        },
+        {
+          "id": "13",
+          "location": {
+            "end": {
+              "column": 10,
+              "line": 21
+            },
+            "start": {
+              "column": 63,
+              "line": 19
+            }
+          },
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "Timeout"
+        },
+        {
+          "id": "12",
+          "location": {
+            "end": {
+              "column": 61,
+              "line": 19
+            },
+            "start": {
+              "column": 13,
+              "line": 19
+            }
+          },
+          "mutatorName": "EqualityOperator",
+          "replacement": "this.qtdAtualVertices !== this.qtdMaximaVertices",
+          "status": "Timeout"
+        },
+        {
+          "id": "16",
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 33
+            },
+            "start": {
+              "column": 24,
+              "line": 29
+            }
+          },
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "Timeout"
+        },
+        {
+          "id": "15",
+          "location": {
+            "end": {
+              "column": 32,
+              "line": 26
+            },
+            "start": {
+              "column": 9,
+              "line": 26
+            }
+          },
+          "mutatorName": "UpdateOperator",
+          "replacement": "this.qtdAtualVertices--",
+          "status": "Timeout"
+        },
+        {
+          "id": "26",
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 58
+            },
+            "start": {
+              "column": 29,
+              "line": 54
+            }
+          },
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "Timeout"
+        }
+      ],
+      "source": "const Vertice = require(\"./vertice\")\nconst MatrizAdjacencia = require('./matrizAdjacencia')\n\nclass Grafo {\n    constructor(qtdVertices = 10) {\n        if (qtdVertices < 1) {\n            throw new Error('A quantidade máxima de vertices deve ser maior ou iagual a 1')\n        }\n\n        this.vertices = []\n        this.qtdMaximaVertices = qtdVertices\n        this.qtdAtualVertices = 0\n        this.rotulosEmIndices = new Map()\n        this.isQtdMaximaDefinida = true\n        this.matrizAdjacencia = null\n    }\n\n    adicionarVertice(rotulo) {\n        if (this.qtdAtualVertices === this.qtdMaximaVertices) {\n            throw new Error(`A quantidade máxima de vétices permitida (${this.qtdMaximaVertices}) foi excedida.`)\n        }\n\n        const vertice = new Vertice(rotulo)\n        this.vertices.push(vertice)\n        this.rotulosEmIndices.set(rotulo, this.qtdAtualVertices)\n        this.qtdAtualVertices++\n    }\n\n    getVertice(rotulo) {\n        this.existeVerticeOrThrow(rotulo)\n        const indice = this.rotulosEmIndices.get(rotulo)\n        return this.vertices[indice]\n    }\n\n    conectarVerices(rotuloVerticeInicial, rotuloVerticeFinal) {\n        if (!this.existeVertice(rotuloVerticeInicial) || !this.existeVertice(rotuloVerticeFinal)) {\n            throw new Error('Para adicionar uma aresta, ambos os vértices devem existir')\n        }\n\n        this.criarMatrizAdjacencia()\n\n        const indiceVerticeInicial = this.rotulosEmIndices.get(rotuloVerticeInicial)\n        const indiceVerticeFinal = this.rotulosEmIndices.get(rotuloVerticeFinal)\n\n        this.matrizAdjacencia.adicionarAresta(indiceVerticeInicial, indiceVerticeFinal)\n    }\n\n    getAdjacnencias(rotuloVertice) {\n        this.existeVerticeOrThrow(rotuloVertice)\n        const indiceVertice = this.rotulosEmIndices.get(rotuloVertice)\n        return this.matrizAdjacencia.getAdjacencias(indiceVertice)\n    }\n\n    criarMatrizAdjacencia() {\n        if (!this.matrizAdjacencia) {\n            this.matrizAdjacencia = new MatrizAdjacencia(this.vertices)\n        }\n    }\n\n    existeVerticeOrThrow(rotulo) {\n        if (!this.existeVertice(rotulo)) {\n            throw new Error('O vértice não existe')\n        }\n\n        return true\n    }\n\n    existeVertice(rotulo) {\n        const indice = this.rotulosEmIndices.get(rotulo)\n        return typeof indice === 'undefined' ? false : true\n    }\n\n    imprimir(fnPrinter) {\n        fnPrinter(this.vertices)\n    }\n}\n\nmodule.exports = Grafo\n"
+    },
+    "/media/deivid/Salvar AQUI/Documentos/Projetos/nodeJS/grafos/src/grafo/core/matrizAdjacencia.js": {
+      "language": "javascript",
+      "mutants": [
+        {
+          "id": "46",
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 10
+            },
+            "start": {
+              "column": 27,
+              "line": 3
+            }
+          },
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests conectarVerices O sistema deve conectar as arestas"
+        },
+        {
+          "id": "48",
+          "location": {
+            "end": {
+              "column": 47,
+              "line": 7
+            },
+            "start": {
+              "column": 25,
+              "line": 7
+            }
+          },
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests conectarVerices O sistema deve conectar as arestas"
+        },
+        {
+          "id": "47",
+          "location": {
+            "end": {
+              "column": 57,
+              "line": 6
+            },
+            "start": {
+              "column": 34,
+              "line": 6
+            }
+          },
+          "mutatorName": "ArrayDeclaration",
+          "replacement": "Array()",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests conectarVerices O sistema deve conectar as arestas"
+        },
+        {
+          "id": "52",
+          "location": {
+            "end": {
+              "column": 10,
+              "line": 9
+            },
+            "start": {
+              "column": 54,
+              "line": 7
+            }
+          },
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests conectarVerices O sistema deve conectar as arestas"
+        },
+        {
+          "id": "53",
+          "location": {
+            "end": {
+              "column": 64,
+              "line": 8
+            },
+            "start": {
+              "column": 41,
+              "line": 8
+            }
+          },
+          "mutatorName": "ArrayDeclaration",
+          "replacement": "Array()",
+          "status": "Killed",
+          "description": "Killed by: MatrizAdjacencia AdicionarArestas Para arestas recurisivas, apenas um vertice deve ser modificado"
+        },
+        {
+          "id": "54",
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 25
+            },
+            "start": {
+              "column": 63,
+              "line": 12
+            }
+          },
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests conectarVerices O sistema deve conectar as arestas"
+        },
+        {
+          "id": "55",
+          "location": {
+            "end": {
+              "column": 43,
+              "line": 16
+            },
+            "start": {
+              "column": 12,
+              "line": 16
+            }
+          },
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests conectarVerices O sistema deve conectar as arestas"
+        },
+        {
+          "id": "56",
+          "location": {
+            "end": {
+              "column": 43,
+              "line": 16
+            },
+            "start": {
+              "column": 12,
+              "line": 16
+            }
+          },
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "status": "Survived"
+        },
+        {
+          "id": "59",
+          "location": {
+            "end": {
+              "column": 10,
+              "line": 24
+            },
+            "start": {
+              "column": 16,
+              "line": 19
+            }
+          },
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests conectarVerices O sistema deve conectar as arestas"
+        },
+        {
+          "id": "60",
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 40
+            },
+            "start": {
+              "column": 35,
+              "line": 27
+            }
+          },
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests getAdjacnencias O sistema deve retornar apenas vertices unidos por arestas"
+        },
+        {
+          "id": "64",
+          "location": {
+            "end": {
+              "column": 49,
+              "line": 31
+            },
+            "start": {
+              "column": 25,
+              "line": 31
+            }
+          },
+          "mutatorName": "EqualityOperator",
+          "replacement": "i >= this.vertices.length",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests getAdjacnencias O sistema deve retornar apenas vertices unidos por arestas"
+        },
+        {
+          "id": "61",
+          "location": {
+            "end": {
+              "column": 31,
+              "line": 29
+            },
+            "start": {
+              "column": 29,
+              "line": 29
+            }
+          },
+          "mutatorName": "ArrayDeclaration",
+          "replacement": "[\"Stryker was here\"]",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests getAdjacnencias O sistema deve retornar apenas vertices unidos por arestas"
+        },
+        {
+          "id": "62",
+          "location": {
+            "end": {
+              "column": 49,
+              "line": 31
+            },
+            "start": {
+              "column": 25,
+              "line": 31
+            }
+          },
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests getAdjacnencias O sistema deve retornar apenas vertices unidos por arestas"
+        },
+        {
+          "id": "63",
+          "location": {
+            "end": {
+              "column": 49,
+              "line": 31
+            },
+            "start": {
+              "column": 25,
+              "line": 31
+            }
+          },
+          "mutatorName": "EqualityOperator",
+          "replacement": "i <= this.vertices.length",
+          "status": "Survived"
+        },
+        {
+          "id": "66",
+          "location": {
+            "end": {
+              "column": 10,
+              "line": 37
+            },
+            "start": {
+              "column": 56,
+              "line": 31
+            }
+          },
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests getAdjacnencias O sistema deve retornar apenas vertices unidos por arestas"
+        },
+        {
+          "id": "67",
+          "location": {
+            "end": {
+              "column": 43,
+              "line": 32
+            },
+            "start": {
+              "column": 16,
+              "line": 32
+            }
+          },
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests getAdjacnencias O sistema deve retornar apenas vertices unidos por arestas"
+        },
+        {
+          "id": "68",
+          "location": {
+            "end": {
+              "column": 43,
+              "line": 32
+            },
+            "start": {
+              "column": 16,
+              "line": 32
+            }
+          },
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests getAdjacnencias O sistema deve retornar apenas vertices unidos por arestas"
+        },
+        {
+          "id": "69",
+          "location": {
+            "end": {
+              "column": 43,
+              "line": 32
+            },
+            "start": {
+              "column": 16,
+              "line": 32
+            }
+          },
+          "mutatorName": "EqualityOperator",
+          "replacement": "this.matriz[linha][i] !== 1",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests getAdjacnencias O sistema deve retornar apenas vertices unidos por arestas"
+        },
+        {
+          "id": "71",
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 44
+            },
+            "start": {
+              "column": 13,
+              "line": 42
+            }
+          },
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "Survived"
+        },
+        {
+          "id": "58",
+          "location": {
+            "end": {
+              "column": 10,
+              "line": 19
+            },
+            "start": {
+              "column": 45,
+              "line": 16
+            }
+          },
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "Killed",
+          "description": "Killed by: MatrizAdjacencia AdicionarArestas Para arestas recurisivas, apenas um vertice deve ser modificado"
+        },
+        {
+          "id": "57",
+          "location": {
+            "end": {
+              "column": 43,
+              "line": 16
+            },
+            "start": {
+              "column": 12,
+              "line": 16
+            }
+          },
+          "mutatorName": "EqualityOperator",
+          "replacement": "verticeInicial !== verticeFinal",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests conectarVerices O sistema deve conectar as arestas"
+        },
+        {
+          "id": "70",
+          "location": {
+            "end": {
+              "column": 14,
+              "line": 35
+            },
+            "start": {
+              "column": 45,
+              "line": 32
+            }
+          },
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests getAdjacnencias O sistema deve retornar apenas vertices unidos por arestas"
+        },
+        {
+          "id": "50",
+          "location": {
+            "end": {
+              "column": 47,
+              "line": 7
+            },
+            "start": {
+              "column": 25,
+              "line": 7
+            }
+          },
+          "mutatorName": "EqualityOperator",
+          "replacement": "i >= this.matriz.length",
+          "status": "Timeout"
+        },
+        {
+          "id": "51",
+          "location": {
+            "end": {
+              "column": 52,
+              "line": 7
+            },
+            "start": {
+              "column": 49,
+              "line": 7
+            }
+          },
+          "mutatorName": "UpdateOperator",
+          "replacement": "i--",
+          "status": "Timeout"
+        },
+        {
+          "id": "49",
+          "location": {
+            "end": {
+              "column": 47,
+              "line": 7
+            },
+            "start": {
+              "column": 25,
+              "line": 7
+            }
+          },
+          "mutatorName": "EqualityOperator",
+          "replacement": "i <= this.matriz.length",
+          "status": "Timeout"
+        },
+        {
+          "id": "65",
+          "location": {
+            "end": {
+              "column": 54,
+              "line": 31
+            },
+            "start": {
+              "column": 51,
+              "line": 31
+            }
+          },
+          "mutatorName": "UpdateOperator",
+          "replacement": "i--",
+          "status": "Timeout"
+        }
+      ],
+      "source": "class MatrizAdjacencia {\n\n    constructor(vertices) {\n        this.vertices = vertices\n        this.qtdVertices = vertices.length\n        this.matriz = Array.from(Array(this.qtdVertices))\n        for (let i = 0; i < this.matriz.length; i++) {\n            this.matriz[i] = Array.from(Array(this.qtdVertices)).fill(0)\n        }\n    }\n\n    adicionarAresta(indiceVerticeInicial, indiceVerticeFinal) {\n        const verticeInicial = this.vertices[indiceVerticeInicial]\n        const verticeFinal = this.vertices[indiceVerticeFinal]\n\n        if(verticeInicial === verticeFinal) {\n            this.matriz[indiceVerticeInicial][indiceVerticeInicial] = 1\n            verticeInicial.addGrau()\n        } else {\n            this.matriz[indiceVerticeInicial][indiceVerticeFinal] = 1\n            verticeInicial.addGrau()\n            this.matriz[indiceVerticeFinal][indiceVerticeInicial] = 1\n            verticeFinal.addGrau()\n        }\n    }\n\n    getAdjacencias(indiceVertice) {\n        const linha = indiceVertice\n        const adjacencias = []\n\n        for (let i = 0; i < this.vertices.length; i++) {\n            if(this.matriz[linha][i] === 1) {\n                const vertice = this.vertices[i]\n                adjacencias.push(vertice)\n            }\n\n        }\n\n        return adjacencias\n    }\n\n    print() {\n        console.table(this.matriz)\n    }\n}\n\n\nmodule.exports = MatrizAdjacencia\n"
+    },
+    "/media/deivid/Salvar AQUI/Documentos/Projetos/nodeJS/grafos/src/grafo/core/vertice.js": {
+      "language": "javascript",
+      "mutants": [
+        {
+          "id": "73",
+          "location": {
+            "end": {
+              "column": 20,
+              "line": 3
+            },
+            "start": {
+              "column": 13,
+              "line": 3
+            }
+          },
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests adicionarVertice O sistema não deve adicionar mais vertices do que o limite especificado"
+        },
+        {
+          "id": "74",
+          "location": {
+            "end": {
+              "column": 20,
+              "line": 3
+            },
+            "start": {
+              "column": 13,
+              "line": 3
+            }
+          },
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "status": "Killed",
+          "description": "Killed by: Vertices Contrutor Um vértice sempre deve conster um rótulo"
+        },
+        {
+          "id": "75",
+          "location": {
+            "end": {
+              "column": 20,
+              "line": 3
+            },
+            "start": {
+              "column": 13,
+              "line": 3
+            }
+          },
+          "mutatorName": "BooleanLiteral",
+          "replacement": "rotulo",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests adicionarVertice O sistema não deve adicionar mais vertices do que o limite especificado"
+        },
+        {
+          "id": "76",
+          "location": {
+            "end": {
+              "column": 10,
+              "line": 5
+            },
+            "start": {
+              "column": 22,
+              "line": 3
+            }
+          },
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "Killed",
+          "description": "Killed by: Vertices Contrutor Um vértice sempre deve conster um rótulo"
+        },
+        {
+          "id": "77",
+          "location": {
+            "end": {
+              "column": 90,
+              "line": 4
+            },
+            "start": {
+              "column": 29,
+              "line": 4
+            }
+          },
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "status": "Killed",
+          "description": "Killed by: Vertices Contrutor Um vértice sempre deve conster um rótulo"
+        },
+        {
+          "id": "78",
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 13
+            },
+            "start": {
+              "column": 15,
+              "line": 11
+            }
+          },
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "Killed",
+          "description": "Killed by: Vertices AddGrau O valor do grau do vertice deve ser incrementado"
+        },
+        {
+          "id": "79",
+          "location": {
+            "end": {
+              "column": 20,
+              "line": 12
+            },
+            "start": {
+              "column": 9,
+              "line": 12
+            }
+          },
+          "mutatorName": "UpdateOperator",
+          "replacement": "this.grau--",
+          "status": "Killed",
+          "description": "Killed by: Vertices AddGrau O valor do grau do vertice deve ser incrementado"
+        },
+        {
+          "id": "72",
+          "location": {
+            "end": {
+              "column": 6,
+              "line": 9
+            },
+            "start": {
+              "column": 25,
+              "line": 2
+            }
+          },
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "status": "Killed",
+          "description": "Killed by: Grafo Tests getVertice O sitema deve retornar o vertice pelo rótulo"
+        }
+      ],
+      "source": "class Vertice {\n    constructor(rotulo) {\n        if (!rotulo) {\n            throw new Error('Não é permitida a criação de vértices com rótulo em branco.')\n        }\n\n        this.rotulo = rotulo\n        this.grau = 0\n    }\n\n    addGrau() {\n        this.grau++\n    }\n}\n\nmodule.exports = Vertice\n"
+    }
+  },
+  "schemaVersion": "1.0",
+  "thresholds": {
+    "high": 80,
+    "low": 60,
+    "break": null
+  }
+}
