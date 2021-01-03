@@ -15,6 +15,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <sonar.apiVersion>RELEASE</sonar.apiVersion>
+        <junit5.vintage.version>5.7.0</junit5.vintage.version>
         <jdk.min.version>1.8</jdk.min.version>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
@@ -72,9 +73,9 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit5.vintage.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
