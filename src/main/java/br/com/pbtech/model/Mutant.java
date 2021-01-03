@@ -18,14 +18,14 @@ public class Mutant {
     @JsonProperty("replacement")
     private String replacement;
     @JsonProperty("status")
-    private String status;
+    private MutantStatus status;
     @JsonProperty("description")
     private String description;
 
     public Mutant() {
     }
 
-    public Mutant(String id, Location location, String mutatorName, String replacement, String status, String description) {
+    public Mutant(String id, Location location, String mutatorName, String replacement, MutantStatus status, String description) {
         this.id = id;
         this.location = location;
         this.mutatorName = mutatorName;
@@ -75,12 +75,12 @@ public class Mutant {
     }
 
     @JsonProperty("status")
-    public String getStatus() {
+    public MutantStatus getStatus() {
         return status;
     }
 
     @JsonProperty("status")
-    public void setStatus(String status) {
+    public void setStatus(MutantStatus status) {
         this.status = status;
     }
 
