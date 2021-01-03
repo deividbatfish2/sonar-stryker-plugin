@@ -10,6 +10,8 @@ import org.sonar.api.batch.fs.InputFile;
 import org.sonar.api.batch.sensor.Sensor;
 import org.sonar.api.batch.sensor.SensorContext;
 import org.sonar.api.batch.sensor.SensorDescriptor;
+import org.sonar.api.batch.sensor.issue.NewIssue;
+import org.sonar.api.batch.sensor.issue.NewIssueLocation;
 import org.sonar.api.config.Configuration;
 import org.sonar.api.utils.log.Logger;
 import org.sonar.api.utils.log.Loggers;
@@ -18,26 +20,29 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 
+import static br.com.pbtech.constantes.Languages.CSHARP_KEY;
+import static br.com.pbtech.constantes.Languages.JAVASCRIPT_KEY;
+import static br.com.pbtech.constantes.Metricas.REPOSITORY_KEY;
 import static br.com.pbtech.metrics.MutantsAggregatedMetrics.*;
+import static br.com.pbtech.rules.StrykerRulesDefinition.INSUFFICIENT_MUTATION_COVERAGE_RULE_KEY;
 
 public class StrykerSensor implements Sensor {
     private final String SENSOR_NAME = "Stryker .Net";
     private final Logger LOG = Loggers.get(getClass());
 
-    private final FilePredicate fileSystemExecutionPredicate;
     private final FileSystem fileSystem;
     private final Configuration settings;
 
     public StrykerSensor(Configuration configuration, FileSystem fileSystem) {
         this.fileSystem = fileSystem;
         this.settings = configuration;
-        this.fileSystemExecutionPredicate = fileSystem.predicates().hasLanguage("javascript");
     }
 
     @Override
     public void describe(SensorDescriptor sensorDescriptor) {
         sensorDescriptor.name(SENSOR_NAME);
-        //sensorDescriptor.onlyOnLanguage("javascript");
+        sensorDescriptor.createIssuesForRuleRepository(REPOSITORY_KEY);
+        //sensorDescriptor.onlyOnLanguages(JAVASCRIPT_KEY);
     }
 
     @Override
