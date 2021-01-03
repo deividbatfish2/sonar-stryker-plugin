@@ -221,7 +221,7 @@
           },
           "mutatorName": "BooleanLiteral",
           "replacement": "false",
-          "status": "Survived"
+          "status": "Killed"
         },
         {
           "id": "9",
@@ -662,7 +662,7 @@
           },
           "mutatorName": "BlockStatement",
           "replacement": "{}",
-          "status": "Survived"
+          "status": "Killed"
         },
         {
           "id": "43",
@@ -917,7 +917,7 @@
           },
           "mutatorName": "ConditionalExpression",
           "replacement": "false",
-          "status": "Survived"
+          "status": "Killed"
         },
         {
           "id": "59",
@@ -1018,7 +1018,7 @@
           },
           "mutatorName": "EqualityOperator",
           "replacement": "i <= this.vertices.length",
-          "status": "Survived"
+          "status": "Killed"
         },
         {
           "id": "66",
@@ -1102,7 +1102,7 @@
           },
           "mutatorName": "BlockStatement",
           "replacement": "{}",
-          "status": "Survived"
+          "status": "Killed"
         },
         {
           "id": "58",
