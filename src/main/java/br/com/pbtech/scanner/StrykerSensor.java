@@ -1,17 +1,15 @@
 package br.com.pbtech.scanner;
 
+import br.com.pbtech.issues.MutantesVivosPosTesteIssueRegister;
 import br.com.pbtech.metrics.Totalizador;
 import br.com.pbtech.model.ObjectFile;
 import br.com.pbtech.model.StrykerJSonModel;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.sonar.api.batch.fs.FilePredicate;
 import org.sonar.api.batch.fs.FileSystem;
 import org.sonar.api.batch.fs.InputFile;
 import org.sonar.api.batch.sensor.Sensor;
 import org.sonar.api.batch.sensor.SensorContext;
 import org.sonar.api.batch.sensor.SensorDescriptor;
-import org.sonar.api.batch.sensor.issue.NewIssue;
-import org.sonar.api.batch.sensor.issue.NewIssueLocation;
 import org.sonar.api.config.Configuration;
 import org.sonar.api.utils.log.Logger;
 import org.sonar.api.utils.log.Loggers;
@@ -20,11 +18,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 
-import static br.com.pbtech.constantes.Languages.CSHARP_KEY;
-import static br.com.pbtech.constantes.Languages.JAVASCRIPT_KEY;
 import static br.com.pbtech.constantes.Metricas.REPOSITORY_KEY;
 import static br.com.pbtech.metrics.MutantsAggregatedMetrics.*;
-import static br.com.pbtech.rules.StrykerRulesDefinition.INSUFFICIENT_MUTATION_COVERAGE_RULE_KEY;
 
 public class StrykerSensor implements Sensor {
     private final String SENSOR_NAME = "Stryker .Net";
@@ -45,7 +40,6 @@ public class StrykerSensor implements Sensor {
         //sensorDescriptor.onlyOnLanguages(JAVASCRIPT_KEY);
     }
 
-    @Override
     public void execute(SensorContext sensorContext) {
         String informedReport = this.settings.get("sonar.javascript.stryker.path").orElse("NAO_INFORMADO");
         if (!informedReport.equals("NAO_INFORMADO")) {
@@ -70,6 +64,10 @@ public class StrykerSensor implements Sensor {
                             sensorContext.<Integer>newMeasure().forMetric(MUTANTES_GERADOS).on(file).withValue(totalizador.getTotalOfMutators()).save();
                             sensorContext.<Integer>newMeasure().forMetric(MUTANTES_MORTOS).on(file).withValue(totalizador.getTotalOfMutantsKilled()).save();
                             sensorContext.<Integer>newMeasure().forMetric(MUTANTES_SOBREVIVENTES).on(file).withValue(totalizador.getTotalOfMutantsSurvived()).save();
+                            if(totalizador.getTotalOfMutantsSurvived() > 0) {
+                                MutantesVivosPosTesteIssueRegister mutantesVivosPosTesteIssueRegister = new MutantesVivosPosTesteIssueRegister();
+                                mutantesVivosPosTesteIssueRegister.registrarIssue(sensorContext, file, reportForFile.getValue().getMutants());
+                            }
                             sensorContext.<Integer>newMeasure().forMetric(MUTANTES_SKIPADOS).on(file).withValue(totalizador.getTotalOfMutantsSkipped()).save();
 
                             LOG.info("Arquivo: {} - Total de mutantes gerados: {} - Total de mutantes mortos: {} - Total de mutantes que sobreviveram: {} - Total de mutantes skipados: {}",
