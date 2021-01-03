@@ -1,17 +1,13 @@
 package br.com.pbtech.scanner;
 
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import org.mockito.Mockito;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.sonar.api.batch.fs.*;
 import org.sonar.api.batch.sensor.SensorContext;
 import org.sonar.api.batch.sensor.measure.NewMeasure;
 import org.sonar.api.config.Configuration;
-import org.sonar.api.measures.Metric;
 
 import java.io.File;
-import java.nio.file.Path;
 import java.util.Optional;
 
 import static java.util.Arrays.asList;
@@ -28,7 +24,7 @@ public class StrykerSensorTest {
     private static InputFile mockedInputFile = mock(InputFile.class);
     private static NewMeasure<Integer> mockedNewMeasure = mock(NewMeasure.class);
 
-    @BeforeClass
+    @BeforeAll
     public static void setUp() {
         when(mockedConfiguration.get(anyString())).thenReturn(Optional.of("defaultreport/defaultReport.json"));
         when(mockedFileSystem.baseDir()).thenReturn(new File("src/test/resources"));
