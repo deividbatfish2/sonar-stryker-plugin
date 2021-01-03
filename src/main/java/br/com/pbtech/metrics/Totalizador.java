@@ -18,13 +18,13 @@ public class Totalizador {
 
         for (Mutant mutant : mutants) {
             switch (mutant.getStatus()) {
-                case "Killed":
+                case KILLED:
                     totalOfMutantsKilled++;
                     break;
-                case "Survived":
+                case SURVIVED:
                     totalOfMutantsSurvived++;
                     break;
-                case "Timeout":
+                case TIMEOUT:
                     totalOfMutantsSkipped++;
                     break;
             }

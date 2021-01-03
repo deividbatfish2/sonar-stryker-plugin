@@ -1,7 +1,8 @@
 package br.com.pbtech.metrics;
 
 import br.com.pbtech.model.*;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 import java.util.List;
 
 import static java.util.Arrays.asList;
@@ -22,7 +23,7 @@ public class TotalizadorTest {
                         ),
                         "BlockStatement",
                         "{}",
-                        "Killed",
+                        MutantStatus.KILLED,
                         "Killed by: Grafo Tests construtor A quantidade mínima de vertices definidos deve ser maior que 1"
                 ),
                 new Mutant(
@@ -33,7 +34,7 @@ public class TotalizadorTest {
                         ),
                         "BlockStatement",
                         "{}",
-                        "Survived",
+                        MutantStatus.SURVIVED,
                         "Killed by: Grafo Tests construtor A quantidade mínima de vertices definidos deve ser maior que 1"
                 ),
                 new Mutant(
@@ -44,7 +45,7 @@ public class TotalizadorTest {
                         ),
                         "BlockStatement",
                         "{}",
-                        "Timeout",
+                        MutantStatus.TIMEOUT,
                         "Killed by: Grafo Tests construtor A quantidade mínima de vertices definidos deve ser maior que 1"
                 )
         );
@@ -68,7 +69,7 @@ public class TotalizadorTest {
                         ),
                         "BlockStatement",
                         "{}",
-                        "Survived",
+                        MutantStatus.SURVIVED,
                         "Killed by: Grafo Tests construtor A quantidade mínima de vertices definidos deve ser maior que 1"
                 )
         );
