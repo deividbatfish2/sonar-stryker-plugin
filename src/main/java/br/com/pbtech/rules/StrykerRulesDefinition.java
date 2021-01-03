@@ -26,7 +26,7 @@ public class StrykerRulesDefinition implements RulesDefinition {
                 .setName(REPOSITORY_NAME);
 
         repository.createRule(MUTANTE_VIVO_POS_TESTE.rule())
-                .setName("Stryker - Mtante vivo pos teste")
+                .setName("Stryker - Mutante vivo pos teste")
                 .setHtmlDescription("Um mutante sobrevieu após a execução dos testes.")
                 .setStatus(RuleStatus.READY)
                 .setSeverity(Severity.MAJOR)
