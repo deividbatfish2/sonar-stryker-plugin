@@ -53,7 +53,7 @@ public class MutantesVivosPosTesteIssueRegisterTest {
                                 new End(1, 10),
                                 new Start(1, 10)
                         ),
-                        "BlockStatement",
+                        MutatorName.BlockStatement,
                         "{}",
                         MutantStatus.KILLED,
                         "Killed by: Grafo Tests construtor A quantidade mínima de vertices definidos deve ser maior que 1"
@@ -64,7 +64,7 @@ public class MutantesVivosPosTesteIssueRegisterTest {
                                 new End(1, 13),
                                 new Start(1, 10)
                         ),
-                        "BlockStatement",
+                        MutatorName.BlockStatement,
                         "{}",
                         MutantStatus.SURVIVED,
                         "Killed by: Grafo Tests construtor A quantidade mínima de vertices definidos deve ser maior que 1"
@@ -75,7 +75,7 @@ public class MutantesVivosPosTesteIssueRegisterTest {
                                 new End(1, 10),
                                 new Start(1, 10)
                         ),
-                        "BlockStatement",
+                        MutatorName.BlockStatement,
                         "{}",
                         MutantStatus.TIMEOUT,
                         "Killed by: Grafo Tests construtor A quantidade mínima de vertices definidos deve ser maior que 1"
@@ -85,7 +85,7 @@ public class MutantesVivosPosTesteIssueRegisterTest {
         mutantesVivosPosTesteIssueRegister.registrarIssue(mockedSensorContext, mockedFile, mutantes);
 
         verify(mockedSensorContext, times(1)).newIssue();
-        verify(mockedNewIssue, times(1)).forRule(ARITHMETIC_OPERATOR_JS);
+        verify(mockedNewIssue, times(1)).forRule(MutatorName.BlockStatement.getRegra());
         verify(mockedNewIssue, times(1)).gap(10.0);
         verify(mockedNewIssue, times(1)).newLocation();
         verify(mockedNewIssue, times(1)).at(mockedNewIssueLocation);
@@ -104,7 +104,7 @@ public class MutantesVivosPosTesteIssueRegisterTest {
                                 new End(1, 10),
                                 new Start(1, 10)
                         ),
-                        "BlockStatement",
+                        MutatorName.BlockStatement,
                         "{}",
                         MutantStatus.KILLED,
                         "Killed by: Grafo Tests construtor A quantidade mínima de vertices definidos deve ser maior que 1"
@@ -115,7 +115,7 @@ public class MutantesVivosPosTesteIssueRegisterTest {
                                 new End(1, 13),
                                 new Start(1, 10)
                         ),
-                        "BlockStatement",
+                        MutatorName.BlockStatement,
                         "{}",
                         MutantStatus.KILLED,
                         "Killed by: Grafo Tests construtor A quantidade mínima de vertices definidos deve ser maior que 1"
@@ -126,7 +126,7 @@ public class MutantesVivosPosTesteIssueRegisterTest {
                                 new End(1, 10),
                                 new Start(1, 10)
                         ),
-                        "BlockStatement",
+                        MutatorName.BlockStatement,
                         "{}",
                         MutantStatus.TIMEOUT,
                         "Killed by: Grafo Tests construtor A quantidade mínima de vertices definidos deve ser maior que 1"
@@ -149,7 +149,7 @@ public class MutantesVivosPosTesteIssueRegisterTest {
                                 new End(1, 10),
                                 new Start(1, 10)
                         ),
-                        "BlockStatement",
+                        MutatorName.BlockStatement,
                         "{}",
                         MutantStatus.KILLED,
                         "Killed by: Grafo Tests construtor A quantidade mínima de vertices definidos deve ser maior que 1"
@@ -160,7 +160,7 @@ public class MutantesVivosPosTesteIssueRegisterTest {
                                 new End(1, 11),
                                 new Start(1, 9)
                         ),
-                        "BlockStatement",
+                        MutatorName.BlockStatement,
                         "{}",
                         MutantStatus.SURVIVED,
                         "Killed by: Grafo Tests construtor A quantidade mínima de vertices definidos deve ser maior que 1"
@@ -171,7 +171,7 @@ public class MutantesVivosPosTesteIssueRegisterTest {
                                 new End(1, 10),
                                 new Start(1, 10)
                         ),
-                        "BlockStatement",
+                        MutatorName.BlockStatement,
                         "{}",
                         MutantStatus.TIMEOUT,
                         "Killed by: Grafo Tests construtor A quantidade mínima de vertices definidos deve ser maior que 1"

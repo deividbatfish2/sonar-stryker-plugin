@@ -61,7 +61,7 @@ public class MutantesBuilderForTest {
                         new End(1, 10),
                         new Start(1, 10)
                 ),
-                "BlockStatement",
+                MutatorName.BlockStatement,
                 "{}",
                 status,
                 "Killed by: Grafo Tests construtor A quantidade mínima de vertices definidos deve ser maior que 1"

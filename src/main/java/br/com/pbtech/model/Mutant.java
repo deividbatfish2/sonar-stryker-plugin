@@ -14,7 +14,7 @@ public class Mutant {
     @JsonProperty("location")
     private Location location;
     @JsonProperty("mutatorName")
-    private String mutatorName;
+    private MutatorName mutatorName;
     @JsonProperty("replacement")
     private String replacement;
     @JsonProperty("status")
@@ -25,7 +25,7 @@ public class Mutant {
     public Mutant() {
     }
 
-    public Mutant(String id, Location location, String mutatorName, String replacement, MutantStatus status, String description) {
+    public Mutant(String id, Location location, MutatorName mutatorName, String replacement, MutantStatus status, String description) {
         this.id = id;
         this.location = location;
         this.mutatorName = mutatorName;
@@ -55,12 +55,12 @@ public class Mutant {
     }
 
     @JsonProperty("mutatorName")
-    public String getMutatorName() {
+    public MutatorName getMutatorName() {
         return mutatorName;
     }
 
     @JsonProperty("mutatorName")
-    public void setMutatorName(String mutatorName) {
+    public void setMutatorName(MutatorName mutatorName) {
         this.mutatorName = mutatorName;
     }
 

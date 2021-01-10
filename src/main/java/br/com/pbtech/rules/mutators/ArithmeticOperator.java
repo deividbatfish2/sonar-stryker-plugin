@@ -2,15 +2,11 @@ package br.com.pbtech.rules.mutators;
 
 import br.com.pbtech.rules.DefaultRuleDefinition;
 import org.sonar.api.rule.RuleKey;
-import org.sonar.api.rule.RuleStatus;
-import org.sonar.api.rule.Severity;
-import org.sonar.api.rules.RuleType;
 import org.sonar.api.server.rule.RulesDefinition;
 
 import static br.com.pbtech.constantes.Languages.CSHARP_KEY;
 import static br.com.pbtech.constantes.Languages.JAVASCRIPT_KEY;
 import static br.com.pbtech.constantes.Metricas.*;
-import static br.com.pbtech.constantes.Metricas.TAG_TEST_COVERAGE;
 
 public class ArithmeticOperator implements RulesDefinition {
 

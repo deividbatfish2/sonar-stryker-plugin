@@ -9,7 +9,6 @@ import org.sonar.api.batch.sensor.issue.NewIssueLocation;
 
 import java.util.List;
 
-import static br.com.pbtech.rules.StrykerRulesDefinition.MUTANTE_VIVO_POS_TESTE;
 import static br.com.pbtech.rules.mutators.ArithmeticOperator.ARITHMETIC_OPERATOR_JS;
 
 public class MutantesVivosPosTesteIssueRegister {
@@ -26,7 +25,7 @@ public class MutantesVivosPosTesteIssueRegister {
         mutantes.stream().filter(mutant -> mutant.getStatus() == MutantStatus.SURVIVED)
                 .forEach(mutant -> {
                     NewIssue newIssue = sensorContext.newIssue()
-                            .forRule(ARITHMETIC_OPERATOR_JS)
+                            .forRule(mutant.getMutatorName().getRegra())
                             .gap(GAP_DEFAULT);
 
                     NewIssueLocation primaryLocation = newIssue.newLocation()
@@ -35,7 +34,7 @@ public class MutantesVivosPosTesteIssueRegister {
                                     mutant.getLocation().getStart().getColumn() -1,
                                     mutant.getLocation().getEnd().getLine(),
                                     mutant.getLocation().getEnd().getColumn() -1 ))
-                            .message(MENSAGEM);
+                            .message("Modificado para: " + mutant.getReplacement());
 
                     newIssue.at(primaryLocation)
                             .save();
