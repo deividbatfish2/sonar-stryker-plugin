@@ -61,6 +61,14 @@ public class MutantMetrics implements Metrics {
 
     @Override
     public List<Metric> getMetrics() {
-        return asList(MUTANTES_GERADOS, MUTANTES_SOBREVIVENTES, MUTANTES_MORTOS, MUTANTES_SKIPADOS);
+        return asList(
+                MUTANTES_GERADOS,
+                MUTANTES_SOBREVIVENTES,
+                MUTANTES_MORTOS,
+                MUTANTES_SKIPADOS,
+                TRECHOS_NAO_COBERTOS,
+                ERROS_IN_RUNTIME,
+                ERROS_DE_COMPILACAO
+        );
     }
 }
