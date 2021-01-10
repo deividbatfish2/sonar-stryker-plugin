@@ -49,7 +49,7 @@ public class StrykerSensorTest {
 
         strykerSensor.execute(mockedSensorContext);
 
-        verify(mockedSensorContext, times(4)).newMeasure();
+        verify(mockedSensorContext, times(7)).newMeasure();
     }
 
     @Test

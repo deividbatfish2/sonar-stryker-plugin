@@ -1,7 +1,8 @@
 package br.com.pbtech;
 
+import br.com.pbtech.metrics.MutantAggregatedMetrics;
 import br.com.pbtech.metrics.TotalizaMutantes;
-import br.com.pbtech.metrics.MutantsAggregatedMetrics;
+import br.com.pbtech.metrics.MutantMetrics;
 import br.com.pbtech.rules.StrykerRulesDefinition;
 import br.com.pbtech.scanner.StrykerSensor;
 import org.sonar.api.Plugin;
@@ -31,7 +32,8 @@ public class StrykerPlugin implements Plugin {
     @Override
     public void define(Context context) {
         context.addExtension(StrykerSensor.class);
-        context.addExtension(MutantsAggregatedMetrics.class);
+        context.addExtension(MutantMetrics.class);
+        context.addExtension(MutantAggregatedMetrics.class);
 
         context.addExtension(TotalizaMutantes.class);
 

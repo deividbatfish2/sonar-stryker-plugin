@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.util.Map;
 
 import static br.com.pbtech.constantes.Metricas.REPOSITORY_KEY;
-import static br.com.pbtech.metrics.MutantsAggregatedMetrics.*;
+import static br.com.pbtech.metrics.MutantMetrics.*;
 
 public class StrykerSensor implements Sensor {
     private final String SENSOR_NAME = "Stryker .Net";
@@ -61,14 +61,11 @@ public class StrykerSensor implements Sensor {
 
                     for (InputFile file : listaDeArquivos) {
                         if(reportForFile.getKey().contains(file.filename())) {
-                            sensorContext.<Integer>newMeasure().forMetric(MUTANTES_GERADOS).on(file).withValue(totalizador.getTotalOfMutators()).save();
-                            sensorContext.<Integer>newMeasure().forMetric(MUTANTES_MORTOS).on(file).withValue(totalizador.getTotalOfMutantsKilled()).save();
-                            sensorContext.<Integer>newMeasure().forMetric(MUTANTES_SOBREVIVENTES).on(file).withValue(totalizador.getTotalOfMutantsSurvived()).save();
+                            registrarMetricas(sensorContext, file, totalizador);
                             if(totalizador.getTotalOfMutantsSurvived() > 0) {
                                 MutantesVivosPosTesteIssueRegister mutantesVivosPosTesteIssueRegister = new MutantesVivosPosTesteIssueRegister();
                                 mutantesVivosPosTesteIssueRegister.registrarIssue(sensorContext, file, reportForFile.getValue().getMutants());
                             }
-                            sensorContext.<Integer>newMeasure().forMetric(MUTANTES_SKIPADOS).on(file).withValue(totalizador.getTotalOfMutantsSkipped()).save();
 
                             LOG.info("Arquivo: {} - Total de mutantes gerados: {} - Total de mutantes mortos: {} - Total de mutantes que sobreviveram: {} - Total de mutantes skipados: {}",
                                     file, totalizador.getTotalOfMutators(), totalizador.getTotalOfMutantsKilled(), totalizador.getTotalOfMutantsSurvived(), totalizador.getTotalOfMutantsSkipped());
@@ -82,5 +79,15 @@ public class StrykerSensor implements Sensor {
         } else {
             LOG.info("Relatório de mutação não informado");
         }
+    }
+
+    private void registrarMetricas(SensorContext sensorContext, InputFile file, Totalizador totalizador) {
+        sensorContext.<Integer>newMeasure().forMetric(MUTANTES_GERADOS).on(file).withValue(totalizador.getTotalOfMutators()).save();
+        sensorContext.<Integer>newMeasure().forMetric(MUTANTES_MORTOS).on(file).withValue(totalizador.getTotalOfMutantsKilled()).save();
+        sensorContext.<Integer>newMeasure().forMetric(MUTANTES_SOBREVIVENTES).on(file).withValue(totalizador.getTotalOfMutantsSurvived()).save();
+        sensorContext.<Integer>newMeasure().forMetric(TRECHOS_NAO_COBERTOS).on(file).withValue(totalizador.getTotalOfNoCoverageMutants()).save();
+        sensorContext.<Integer>newMeasure().forMetric(ERROS_IN_RUNTIME).on(file).withValue(totalizador.getTotalOfRuntimeError()).save();
+        sensorContext.<Integer>newMeasure().forMetric(ERROS_DE_COMPILACAO).on(file).withValue(totalizador.getTotalOfRuntimeError()).save();
+        sensorContext.<Integer>newMeasure().forMetric(MUTANTES_SKIPADOS).on(file).withValue(totalizador.getTotalOfMutantsSkipped()).save();
     }
 }

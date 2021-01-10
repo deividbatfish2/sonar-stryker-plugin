@@ -6,8 +6,7 @@ import org.sonar.api.ce.measure.MeasureComputer;
 import org.sonar.api.utils.log.Logger;
 import org.sonar.api.utils.log.Loggers;
 
-import static br.com.pbtech.metrics.MutantsAggregatedMetrics.MUTANTES_GERADOS;
-import static br.com.pbtech.metrics.MutantsAggregatedMetrics.TOTAL_DE_MUTANTES;
+import static br.com.pbtech.metrics.MutantMetrics.MUTANTES_GERADOS;
 
 public class TotalizaMutantes implements MeasureComputer {
 

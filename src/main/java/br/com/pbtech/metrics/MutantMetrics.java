@@ -8,7 +8,7 @@ import java.util.List;
 
 import static java.util.Arrays.asList;
 
-public class MutantsAggregatedMetrics implements Metrics {
+public class MutantMetrics implements Metrics {
 
     public static final Metric<Integer> MUTANTES_GERADOS = new Metric.Builder("mutantes_gerados", "Mutantes Gerados", Metric.ValueType.INT)
             .setDescription("Exibe o total de mutantes criados durante a execução dos testes")
@@ -59,15 +59,8 @@ public class MutantsAggregatedMetrics implements Metrics {
             .setDomain(Metricas.DOMINIO)
             .create();
 
-    public static final Metric<Integer> TOTAL_DE_MUTANTES = new Metric.Builder("total_de_mutantes", "Total de Mutantes", Metric.ValueType.INT)
-            .setDescription("Exibe o total de mutantes gerados")
-            .setDirection(Metric.DIRECTION_BETTER)
-            .setQualitative(false)
-            .setDomain(Metricas.DOMINIO)
-            .create();
-
     @Override
     public List<Metric> getMetrics() {
-        return asList(MUTANTES_GERADOS, MUTANTES_SOBREVIVENTES, MUTANTES_MORTOS, MUTANTES_SKIPADOS, TOTAL_DE_MUTANTES);
+        return asList(MUTANTES_GERADOS, MUTANTES_SOBREVIVENTES, MUTANTES_MORTOS, MUTANTES_SKIPADOS);
     }
 }
