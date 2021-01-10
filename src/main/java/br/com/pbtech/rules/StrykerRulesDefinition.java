@@ -7,22 +7,18 @@ import org.sonar.api.rules.RuleType;
 import org.sonar.api.server.rule.RulesDefinition;
 
 import static br.com.pbtech.constantes.Languages.JAVASCRIPT_KEY;
-import static br.com.pbtech.constantes.Metricas.REPOSITORY_KEY;
-import static br.com.pbtech.constantes.Metricas.REPOSITORY_NAME;
+import static br.com.pbtech.constantes.Metricas.*;
 
 public class StrykerRulesDefinition implements RulesDefinition {
 
-    public static final RuleKey INSUFFICIENT_MUTATION_COVERAGE_RULE_KEY = RuleKey.of(REPOSITORY_KEY,"stryker.insufficient.mutation.coverage");
-    public static final RuleKey MUTANTE_VIVO_POS_TESTE = RuleKey.of(REPOSITORY_KEY, "stryker.mutante.vivo.pos.teste");
+    public static final RuleKey INSUFFICIENT_MUTATION_COVERAGE_RULE_KEY = RuleKey.of(REPOSITORY_KEY_JS,"stryker.insufficient.mutation.coverage");
+    public static final RuleKey MUTANTE_VIVO_POS_TESTE = RuleKey.of(REPOSITORY_KEY_JS, "stryker.mutante.vivo.pos.teste");
     private static final String COVERAGE_RATIO_PARAM = "minimumMutationCoverageRatio";
-
-    public static final String TAG_TEST_QUALITY = "test-quality";
-    public static final String TAG_TEST_COVERAGE = "coverage";
 
     @Override
     public void define(Context context) {
         NewRepository repository = context
-                .createRepository(REPOSITORY_KEY, JAVASCRIPT_KEY)
+                .createRepository(REPOSITORY_KEY_JS, JAVASCRIPT_KEY)
                 .setName(REPOSITORY_NAME);
 
         repository.createRule(MUTANTE_VIVO_POS_TESTE.rule())

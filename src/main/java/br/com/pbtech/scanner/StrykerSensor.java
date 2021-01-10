@@ -18,7 +18,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 
-import static br.com.pbtech.constantes.Metricas.REPOSITORY_KEY;
+import static br.com.pbtech.constantes.Metricas.REPOSITORY_KEY_JS;
 import static br.com.pbtech.metrics.MutantMetrics.*;
 
 public class StrykerSensor implements Sensor {
@@ -36,7 +36,7 @@ public class StrykerSensor implements Sensor {
     @Override
     public void describe(SensorDescriptor sensorDescriptor) {
         sensorDescriptor.name(SENSOR_NAME);
-        sensorDescriptor.createIssuesForRuleRepository(REPOSITORY_KEY);
+        sensorDescriptor.createIssuesForRuleRepository(REPOSITORY_KEY_JS);
         //sensorDescriptor.onlyOnLanguages(JAVASCRIPT_KEY);
     }
 
