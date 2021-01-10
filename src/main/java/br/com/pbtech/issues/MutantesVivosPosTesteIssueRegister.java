@@ -9,12 +9,9 @@ import org.sonar.api.batch.sensor.issue.NewIssueLocation;
 
 import java.util.List;
 
-import static br.com.pbtech.rules.mutators.ArithmeticOperator.ARITHMETIC_OPERATOR_JS;
-
 public class MutantesVivosPosTesteIssueRegister {
 
     private final Double GAP_DEFAULT = 10.0;
-    public final String MENSAGEM = "Uma mutação neste trecho sobreviveu.";
 
     public void registrarIssue(SensorContext sensorContext, InputFile file, List<Mutant> mutantes) {
 
@@ -25,7 +22,7 @@ public class MutantesVivosPosTesteIssueRegister {
         mutantes.stream().filter(mutant -> mutant.getStatus() == MutantStatus.SURVIVED)
                 .forEach(mutant -> {
                     NewIssue newIssue = sensorContext.newIssue()
-                            .forRule(mutant.getMutatorName().getRegra())
+                            .forRule(mutant.getMutatorName().getRegra().getOperatorJs())
                             .gap(GAP_DEFAULT);
 
                     NewIssueLocation primaryLocation = newIssue.newLocation()
@@ -34,7 +31,7 @@ public class MutantesVivosPosTesteIssueRegister {
                                     mutant.getLocation().getStart().getColumn() -1,
                                     mutant.getLocation().getEnd().getLine(),
                                     mutant.getLocation().getEnd().getColumn() -1 ))
-                            .message("Modificado para: " + mutant.getReplacement());
+                            .message(mutant.getMutatorName().getRegra().getRuleName() + " -> Mutação: " + mutant.getReplacement());
 
                     newIssue.at(primaryLocation)
                             .save();

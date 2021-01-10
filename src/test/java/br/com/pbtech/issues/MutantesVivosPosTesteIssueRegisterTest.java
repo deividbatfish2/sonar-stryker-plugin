@@ -13,7 +13,6 @@ import org.sonar.api.rule.RuleKey;
 
 import java.util.List;
 
-import static br.com.pbtech.rules.mutators.ArithmeticOperator.ARITHMETIC_OPERATOR_JS;
 import static java.util.Arrays.asList;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -85,7 +84,7 @@ public class MutantesVivosPosTesteIssueRegisterTest {
         mutantesVivosPosTesteIssueRegister.registrarIssue(mockedSensorContext, mockedFile, mutantes);
 
         verify(mockedSensorContext, times(1)).newIssue();
-        verify(mockedNewIssue, times(1)).forRule(MutatorName.BlockStatement.getRegra());
+        verify(mockedNewIssue, times(1)).forRule(MutatorName.BlockStatement.getRegra().getOperatorJs());
         verify(mockedNewIssue, times(1)).gap(10.0);
         verify(mockedNewIssue, times(1)).newLocation();
         verify(mockedNewIssue, times(1)).at(mockedNewIssueLocation);

@@ -1,17 +1,17 @@
 package br.com.pbtech.rules.mutators;
 
+import br.com.pbtech.rules.AbstractMutatorRule;
 import br.com.pbtech.rules.DefaultRuleDefinition;
 import org.sonar.api.rule.RuleKey;
-import org.sonar.api.server.rule.RulesDefinition;
 
 import static br.com.pbtech.constantes.Languages.CSHARP_KEY;
 import static br.com.pbtech.constantes.Languages.JAVASCRIPT_KEY;
 import static br.com.pbtech.constantes.Metricas.*;
 
-public class ArrayDeclaration implements RulesDefinition {
+public class ArrayDeclaration extends AbstractMutatorRule {
 
-    public static final RuleKey ARRAY_DECLARATION_JS = RuleKey.of(REPOSITORY_KEY_JS, "stryker.rule.js.array_declaration");
-    public static final RuleKey ARRAY_DECLARATION_CS = RuleKey.of(REPOSITORY_KEY_CS, "stryker.rule.cs.array_declaration");
+    private final RuleKey ARRAY_DECLARATION_JS = RuleKey.of(REPOSITORY_KEY_JS, "stryker.rule.js.array_declaration");
+    private final RuleKey ARRAY_DECLARATION_CS = RuleKey.of(REPOSITORY_KEY_CS, "stryker.rule.cs.array_declaration");
 
     private final String RULE_NAME = "Stryker - Array Declaration";
     private final String HTML_DESCRIPTION = "Operador de mutação de arrays: <a href=\"https://stryker-mutator.io/docs/mutation-testing-elements/supported-mutators/#array-declaration\">Saiba mais</a>";
@@ -31,5 +31,15 @@ public class ArrayDeclaration implements RulesDefinition {
 
         jsRepository.done();
         csharpRepository.done();
+    }
+
+    @Override
+    public RuleKey getOperatorJs() {
+        return this.ARRAY_DECLARATION_JS;
+    }
+
+    @Override
+    public String getRuleName() {
+        return this.RULE_NAME;
     }
 }

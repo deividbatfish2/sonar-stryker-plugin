@@ -1,5 +1,6 @@
 package br.com.pbtech.rules.mutators;
 
+import br.com.pbtech.rules.AbstractMutatorRule;
 import br.com.pbtech.rules.DefaultRuleDefinition;
 import org.sonar.api.rule.RuleKey;
 import org.sonar.api.server.rule.RulesDefinition;
@@ -8,10 +9,10 @@ import static br.com.pbtech.constantes.Languages.CSHARP_KEY;
 import static br.com.pbtech.constantes.Languages.JAVASCRIPT_KEY;
 import static br.com.pbtech.constantes.Metricas.*;
 
-public class LogicalOperator implements RulesDefinition {
+public class LogicalOperator extends AbstractMutatorRule {
 
-    public static final RuleKey LOGICAL_OPERATOR_JS = RuleKey.of(REPOSITORY_KEY_JS, "stryker.rule.js.logical_operator");
-    public static final RuleKey LOGICAL_OPERATOR_CS = RuleKey.of(REPOSITORY_KEY_CS, "stryker.rule.cs.logical_operator");
+    private final RuleKey LOGICAL_OPERATOR_JS = RuleKey.of(REPOSITORY_KEY_JS, "stryker.rule.js.logical_operator");
+    private final RuleKey LOGICAL_OPERATOR_CS = RuleKey.of(REPOSITORY_KEY_CS, "stryker.rule.cs.logical_operator");
 
     private final String RULE_NAME = "Stryker - Logical Operator";
     private final String HTML_DESCRIPTION = "Operador logical operator: <a href=\"https://stryker-mutator.io/docs/mutation-testing-elements/supported-mutators/#logical-operator\">Saiba mais</a>";
@@ -32,5 +33,15 @@ public class LogicalOperator implements RulesDefinition {
 
         jsRepository.done();
         csharpRepository.done();
+    }
+
+    @Override
+    public RuleKey getOperatorJs() {
+        return this.LOGICAL_OPERATOR_JS;
+    }
+
+    @Override
+    public String getRuleName() {
+        return this.RULE_NAME;
     }
 }

@@ -1,42 +1,34 @@
 package br.com.pbtech.model;
 
+import br.com.pbtech.rules.AbstractMutatorRule;
+import br.com.pbtech.rules.csharp.mutators.AssignmentExpression;
+import br.com.pbtech.rules.csharp.mutators.CheckedStatement;
+import br.com.pbtech.rules.csharp.mutators.MethodExpression;
+import br.com.pbtech.rules.js.mutators.BlockStatement;
+import br.com.pbtech.rules.mutators.*;
 import com.fasterxml.jackson.annotation.JsonValue;
-import org.sonar.api.rule.RuleKey;
-
-import static br.com.pbtech.rules.csharp.mutators.AssignmentExpression.ASSIGNMENT_EXPRESSION;
-import static br.com.pbtech.rules.csharp.mutators.CheckedStatement.CHECHED_STATEMENT;
-import static br.com.pbtech.rules.csharp.mutators.MethodExpression.METHOD_EXPRESSION;
-import static br.com.pbtech.rules.js.mutators.BlockStatement.BLOCK_STATEMENT;
-import static br.com.pbtech.rules.mutators.ArithmeticOperator.ARITHMETIC_OPERATOR_JS;
-import static br.com.pbtech.rules.mutators.ArrayDeclaration.ARRAY_DECLARATION_JS;
-import static br.com.pbtech.rules.mutators.BooleanLiteral.BOOLEAN_LITERAL_JS;
-import static br.com.pbtech.rules.mutators.ConditionalExpression.CONDITIONAL_EXPRESSION_JS;
-import static br.com.pbtech.rules.mutators.EqualityOperator.EQUALITY_OPERATOR_JS;
-import static br.com.pbtech.rules.mutators.LogicalOperator.LOGICAL_OPERATOR_JS;
-import static br.com.pbtech.rules.mutators.StringLiteral.STRING_LITERAL_JS;
-import static br.com.pbtech.rules.mutators.UnaryOperator.UNARY_OPERATOR_JS;
-import static br.com.pbtech.rules.mutators.UpdateOperator.UPDATE_OPERATOR_JS;
+import org.sonar.api.server.rule.RulesDefinition;
 
 public enum MutatorName {
 
-    ArithmeticOperator("ArithmeticOperator", ARITHMETIC_OPERATOR_JS),
-    ArrayDeclaration("ArrayDeclaration", ARRAY_DECLARATION_JS),
-    AssignmentExpression("AssignmentExpression", ASSIGNMENT_EXPRESSION),
-    BlockStatement("BlockStatement", BLOCK_STATEMENT),
-    BooleanLiteral("BooleanLiteral", BOOLEAN_LITERAL_JS),
-    CheckedStatement("CheckedStatement", CHECHED_STATEMENT),
-    ConditionalExpression("ConditionalExpression", CONDITIONAL_EXPRESSION_JS),
-    EqualityOperator("EqualityOperator", EQUALITY_OPERATOR_JS),
-    LogicalOperator("LogicalOperator", LOGICAL_OPERATOR_JS),
-    MethodExpression("MethodExpression", METHOD_EXPRESSION),
-    StringLiteral("StringLiteral", STRING_LITERAL_JS),
-    UnaryOperator("UnaryOperator", UNARY_OPERATOR_JS),
-    UpdateOperator("UpdateOperator", UPDATE_OPERATOR_JS);
+    ArithmeticOperator("ArithmeticOperator", new ArithmeticOperator()),
+    ArrayDeclaration("ArrayDeclaration", new ArrayDeclaration()),
+    AssignmentExpression("AssignmentExpression", new AssignmentExpression()),
+    BlockStatement("BlockStatement", new BlockStatement()),
+    BooleanLiteral("BooleanLiteral", new BooleanLiteral()),
+    CheckedStatement("CheckedStatement", new CheckedStatement()),
+    ConditionalExpression("ConditionalExpression", new ConditionalExpression()),
+    EqualityOperator("EqualityOperator", new EqualityOperator()),
+    LogicalOperator("LogicalOperator", new LogicalOperator()),
+    MethodExpression("MethodExpression", new MethodExpression()),
+    StringLiteral("StringLiteral", new StringLiteral()),
+    UnaryOperator("UnaryOperator", new UnaryOperator()),
+    UpdateOperator("UpdateOperator", new UpdateOperator());
 
     private String descricao;
-    private RuleKey regra;
+    private AbstractMutatorRule regra;
 
-    MutatorName(String descricao, RuleKey regra) {
+    MutatorName(String descricao, AbstractMutatorRule regra) {
         this.descricao = descricao;
         this.regra = regra;
     }
@@ -44,5 +36,5 @@ public enum MutatorName {
     @JsonValue
     public String getDescricao() { return this.descricao; }
 
-    public RuleKey getRegra() { return this.regra; }
+    public AbstractMutatorRule getRegra() { return this.regra; }
 }

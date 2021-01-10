@@ -1,5 +1,6 @@
 package br.com.pbtech.rules.mutators;
 
+import br.com.pbtech.rules.AbstractMutatorRule;
 import br.com.pbtech.rules.DefaultRuleDefinition;
 import org.sonar.api.rule.RuleKey;
 import org.sonar.api.server.rule.RulesDefinition;
@@ -8,10 +9,10 @@ import static br.com.pbtech.constantes.Languages.CSHARP_KEY;
 import static br.com.pbtech.constantes.Languages.JAVASCRIPT_KEY;
 import static br.com.pbtech.constantes.Metricas.*;
 
-public class UnaryOperator implements RulesDefinition {
+public class UnaryOperator extends AbstractMutatorRule {
 
-    public static final RuleKey UNARY_OPERATOR_JS = RuleKey.of(REPOSITORY_KEY_JS, "stryker.rule.js.unary_opperator");
-    public static final RuleKey UNARY_OPERATOR_CS = RuleKey.of(REPOSITORY_KEY_CS, "stryker.rule.cs.unary_operator");
+    private final RuleKey UNARY_OPERATOR_JS = RuleKey.of(REPOSITORY_KEY_JS, "stryker.rule.js.unary_opperator");
+    private final RuleKey UNARY_OPERATOR_CS = RuleKey.of(REPOSITORY_KEY_CS, "stryker.rule.cs.unary_operator");
 
     private final String RULE_NAME = "Stryker - Unary Operator";
     private final String HTML_DESCRIPTION = "Operador Unary Operator: <a href=\"https://stryker-mutator.io/docs/mutation-testing-elements/supported-mutators/#unary-operator\">Saiba mais</a>";
@@ -32,5 +33,15 @@ public class UnaryOperator implements RulesDefinition {
 
         jsRepository.done();
         csharpRepository.done();
+    }
+
+    @Override
+    public RuleKey getOperatorJs() {
+        return this.UNARY_OPERATOR_JS;
+    }
+
+    @Override
+    public String getRuleName() {
+        return this.RULE_NAME;
     }
 }

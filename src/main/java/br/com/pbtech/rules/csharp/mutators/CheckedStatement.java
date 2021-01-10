@@ -1,5 +1,6 @@
 package br.com.pbtech.rules.csharp.mutators;
 
+import br.com.pbtech.rules.AbstractMutatorRule;
 import br.com.pbtech.rules.DefaultRuleDefinition;
 import org.sonar.api.rule.RuleKey;
 import org.sonar.api.server.rule.RulesDefinition;
@@ -8,9 +9,9 @@ import static br.com.pbtech.constantes.Languages.CSHARP_KEY;
 import static br.com.pbtech.constantes.Metricas.REPOSITORY_KEY_CS;
 import static br.com.pbtech.constantes.Metricas.REPOSITORY_NAME;
 
-public class CheckedStatement implements RulesDefinition {
+public class CheckedStatement extends AbstractMutatorRule {
 
-    public static final RuleKey CHECHED_STATEMENT = RuleKey.of(REPOSITORY_KEY_CS, "stryker.rule.cs.checked_statement");
+    private final RuleKey CHECHED_STATEMENT = RuleKey.of(REPOSITORY_KEY_CS, "stryker.rule.cs.checked_statement");
 
     private final String RULE_NAME = "Stryker - Checked Statement";
     private final String HTML_DESCRIPTION = "Operador Checked Statement: <a href=\"https://stryker-mutator.io/docs/mutation-testing-elements/supported-mutators/#checked-statement\">Saiba mais</a>";
@@ -25,5 +26,15 @@ public class CheckedStatement implements RulesDefinition {
         DefaultRuleDefinition.createDefinition(csharpRepository, CHECHED_STATEMENT.rule(), RULE_NAME, HTML_DESCRIPTION);
 
         csharpRepository.done();
+    }
+
+    @Override
+    public RuleKey getOperatorJs() {
+        return this.CHECHED_STATEMENT;
+    }
+
+    @Override
+    public String getRuleName() {
+        return this.RULE_NAME;
     }
 }
