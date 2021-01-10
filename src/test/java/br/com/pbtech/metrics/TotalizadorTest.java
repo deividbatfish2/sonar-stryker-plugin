@@ -1,5 +1,6 @@
 package br.com.pbtech.metrics;
 
+import br.com.pbtech.builder.mutantes.MutantesBuilderForTest;
 import br.com.pbtech.model.*;
 import org.junit.jupiter.api.Test;
 
@@ -14,65 +15,31 @@ public class TotalizadorTest {
     @Test
     public void deveTotalizarOsMutantesAPartirDeUmaLista() {
 
-        List<Mutant> mutants = asList(
-                new Mutant(
-                        "01",
-                        new Location(
-                                new End(1, 10),
-                                new Start(1, 10)
-                        ),
-                        "BlockStatement",
-                        "{}",
-                        MutantStatus.KILLED,
-                        "Killed by: Grafo Tests construtor A quantidade mínima de vertices definidos deve ser maior que 1"
-                ),
-                new Mutant(
-                        "02",
-                        new Location(
-                                new End(1, 10),
-                                new Start(1, 10)
-                        ),
-                        "BlockStatement",
-                        "{}",
-                        MutantStatus.SURVIVED,
-                        "Killed by: Grafo Tests construtor A quantidade mínima de vertices definidos deve ser maior que 1"
-                ),
-                new Mutant(
-                        "03",
-                        new Location(
-                                new End(1, 10),
-                                new Start(1, 10)
-                        ),
-                        "BlockStatement",
-                        "{}",
-                        MutantStatus.TIMEOUT,
-                        "Killed by: Grafo Tests construtor A quantidade mínima de vertices definidos deve ser maior que 1"
-                )
-        );
+        List<Mutant> mutants = MutantesBuilderForTest.criaListaDeMutantes()
+                .withASurvivedMutant()
+                .withAKilledMutant()
+                .withATimeoutMutant()
+                .withACompileErrorMutant()
+                .withANoCoverageMutant()
+                .withARuntimeErrorMutant()
+                .build();
 
         Totalizador totalizador = new Totalizador(mutants);
 
-        assertThat(totalizador.getTotalOfMutators(), is(3));
+        assertThat(totalizador.getTotalOfMutators(), is(6));
         assertThat(totalizador.getTotalOfMutantsKilled(), is(1));
         assertThat(totalizador.getTotalOfMutantsSurvived(), is(1));
         assertThat(totalizador.getTotalOfMutantsSkipped(), is(1));
+        assertThat(totalizador.getTotalOfCompileError(), is(1));
+        assertThat(totalizador.getTotalOfRuntimeError(), is(1));
+        assertThat(totalizador.getTotalOfNoCoverageMutants(), is(1));
     }
 
     @Test
     public void DeveContabilizarZeroParaStatusNaoInformados() {
-        List<Mutant> mutants = asList(
-                new Mutant(
-                        "02",
-                        new Location(
-                                new End(1, 10),
-                                new Start(1, 10)
-                        ),
-                        "BlockStatement",
-                        "{}",
-                        MutantStatus.SURVIVED,
-                        "Killed by: Grafo Tests construtor A quantidade mínima de vertices definidos deve ser maior que 1"
-                )
-        );
+        List<Mutant> mutants = MutantesBuilderForTest.criaListaDeMutantes()
+                .withASurvivedMutant()
+                .build();
 
         Totalizador totalizador = new Totalizador(mutants);
 
@@ -80,5 +47,8 @@ public class TotalizadorTest {
         assertThat(totalizador.getTotalOfMutantsKilled(), is(0));
         assertThat(totalizador.getTotalOfMutantsSurvived(), is(1));
         assertThat(totalizador.getTotalOfMutantsSkipped(), is(0));
+        assertThat(totalizador.getTotalOfCompileError(), is(0));
+        assertThat(totalizador.getTotalOfRuntimeError(), is(0));
+        assertThat(totalizador.getTotalOfNoCoverageMutants(), is(0));
     }
 }

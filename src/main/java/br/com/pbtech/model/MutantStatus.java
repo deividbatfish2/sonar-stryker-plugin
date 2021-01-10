@@ -5,6 +5,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 public enum MutantStatus {
     SURVIVED("Survived"),
     KILLED("Killed"),
+    NO_COVERAGE("No coverage"),
+    RUNTIME_ERROR("Runtime error"),
+    COMPILE_ERROR("Compile error"),
     TIMEOUT("Timeout");
 
     private String descricao;
