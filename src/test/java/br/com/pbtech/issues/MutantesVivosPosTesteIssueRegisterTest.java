@@ -1,6 +1,9 @@
 package br.com.pbtech.issues;
 
+import br.com.pbtech.builder.mutantes.MutantesBuilderForTest;
 import br.com.pbtech.model.*;
+import br.com.pbtech.rules.js.mutators.JsRule;
+import br.com.pbtech.rules.js.mutators.JsRules;
 import org.junit.jupiter.api.*;
 import org.mockito.ArgumentCaptor;
 import org.sonar.api.batch.fs.InputComponent;
@@ -13,7 +16,6 @@ import org.sonar.api.rule.RuleKey;
 
 import java.util.List;
 
-import static java.util.Arrays.asList;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -46,46 +48,20 @@ public class MutantesVivosPosTesteIssueRegisterTest {
 
     @Test
     public void DeveCriarIssueParaOArquivoComARegra_MUTANTE_VIVO_POS_TESTE() {
-        List<Mutant> mutantes = asList(new Mutant(
-                        "01",
-                        new Location(
-                                new End(1, 10),
-                                new Start(1, 10)
-                        ),
-                        MutatorName.BlockStatement,
-                        "{}",
-                        MutantStatus.KILLED,
-                        "Killed by: Grafo Tests construtor A quantidade mínima de vertices definidos deve ser maior que 1"
-                ),
-                new Mutant(
-                        "02",
-                        new Location(
-                                new End(1, 13),
-                                new Start(1, 10)
-                        ),
-                        MutatorName.BlockStatement,
-                        "{}",
-                        MutantStatus.SURVIVED,
-                        "Killed by: Grafo Tests construtor A quantidade mínima de vertices definidos deve ser maior que 1"
-                ),
-                new Mutant(
-                        "03",
-                        new Location(
-                                new End(1, 10),
-                                new Start(1, 10)
-                        ),
-                        MutatorName.BlockStatement,
-                        "{}",
-                        MutantStatus.TIMEOUT,
-                        "Killed by: Grafo Tests construtor A quantidade mínima de vertices definidos deve ser maior que 1"
-                ));
+        List<Mutant> mutantes = MutantesBuilderForTest.criaListaDeMutantes()
+                .withAKilledMutant()
+                .withASurvivedMutant()
+                .withATimeoutMutant()
+                .build();
 
         MutantesVivosPosTesteIssueRegister mutantesVivosPosTesteIssueRegister = new MutantesVivosPosTesteIssueRegister();
         mutantesVivosPosTesteIssueRegister.registrarIssue(mockedSensorContext, mockedFile, mutantes);
 
+        JsRule jsRule = JsRules.getRuleByMutatorName(MutatorName.BlockStatement);
+
         verify(mockedSensorContext, times(1)).newIssue();
-        verify(mockedNewIssue, times(1)).forRule(MutatorName.BlockStatement.getRegra().getOperatorJs());
-        verify(mockedNewIssue, times(1)).gap(10.0);
+        verify(mockedNewIssue, times(1)).forRule(jsRule.getOperatorJs());
+        verify(mockedNewIssue, times(1)).gap(jsRule.getGap());
         verify(mockedNewIssue, times(1)).newLocation();
         verify(mockedNewIssue, times(1)).at(mockedNewIssueLocation);
         verify(mockedNewIssue, times(1)).save();
@@ -97,39 +73,11 @@ public class MutantesVivosPosTesteIssueRegisterTest {
     @Test
     public void DeveVerificarQueNaoExistemMutantesVivosELancarUmaExcecao() {
 
-        List<Mutant> mutantes = asList(new Mutant(
-                        "01",
-                        new Location(
-                                new End(1, 10),
-                                new Start(1, 10)
-                        ),
-                        MutatorName.BlockStatement,
-                        "{}",
-                        MutantStatus.KILLED,
-                        "Killed by: Grafo Tests construtor A quantidade mínima de vertices definidos deve ser maior que 1"
-                ),
-                new Mutant(
-                        "02",
-                        new Location(
-                                new End(1, 13),
-                                new Start(1, 10)
-                        ),
-                        MutatorName.BlockStatement,
-                        "{}",
-                        MutantStatus.KILLED,
-                        "Killed by: Grafo Tests construtor A quantidade mínima de vertices definidos deve ser maior que 1"
-                ),
-                new Mutant(
-                        "03",
-                        new Location(
-                                new End(1, 10),
-                                new Start(1, 10)
-                        ),
-                        MutatorName.BlockStatement,
-                        "{}",
-                        MutantStatus.TIMEOUT,
-                        "Killed by: Grafo Tests construtor A quantidade mínima de vertices definidos deve ser maior que 1"
-                ));
+        List<Mutant> mutantes = MutantesBuilderForTest.criaListaDeMutantes()
+                .withAKilledMutant()
+                .withAKilledMutant()
+                .withATimeoutMutant()
+                .build();
 
         MutantesVivosPosTesteIssueRegister mutantesVivosPosTesteIssueRegister = new MutantesVivosPosTesteIssueRegister();
 
@@ -142,39 +90,23 @@ public class MutantesVivosPosTesteIssueRegisterTest {
 
         ArgumentCaptor<Integer> integerArgumentCaptor = ArgumentCaptor.forClass(Integer.class);
 
-        List<Mutant> mutantes = asList(new Mutant(
-                        "01",
-                        new Location(
-                                new End(1, 10),
-                                new Start(1, 10)
-                        ),
-                        MutatorName.BlockStatement,
-                        "{}",
-                        MutantStatus.KILLED,
-                        "Killed by: Grafo Tests construtor A quantidade mínima de vertices definidos deve ser maior que 1"
+        Mutant mutantSurvived = new Mutant(
+                "02",
+                new Location(
+                        new End(1, 11),
+                        new Start(1, 9)
                 ),
-                new Mutant(
-                        "02",
-                        new Location(
-                                new End(1, 11),
-                                new Start(1, 9)
-                        ),
-                        MutatorName.BlockStatement,
-                        "{}",
-                        MutantStatus.SURVIVED,
-                        "Killed by: Grafo Tests construtor A quantidade mínima de vertices definidos deve ser maior que 1"
-                ),
-                new Mutant(
-                        "03",
-                        new Location(
-                                new End(1, 10),
-                                new Start(1, 10)
-                        ),
-                        MutatorName.BlockStatement,
-                        "{}",
-                        MutantStatus.TIMEOUT,
-                        "Killed by: Grafo Tests construtor A quantidade mínima de vertices definidos deve ser maior que 1"
-                ));
+                MutatorName.BlockStatement,
+                "{}",
+                MutantStatus.SURVIVED,
+                "Killed by: Grafo Tests construtor A quantidade mínima de vertices definidos deve ser maior que 1"
+        );
+
+        List<Mutant> mutantes = MutantesBuilderForTest.criaListaDeMutantes()
+                .withATimeoutMutant()
+                .withAKilledMutant()
+                .withThisMutant(mutantSurvived)
+                .build();
 
         MutantesVivosPosTesteIssueRegister mutantesVivosPosTesteIssueRegister = new MutantesVivosPosTesteIssueRegister();
         mutantesVivosPosTesteIssueRegister.registrarIssue(mockedSensorContext, mockedFile, mutantes);

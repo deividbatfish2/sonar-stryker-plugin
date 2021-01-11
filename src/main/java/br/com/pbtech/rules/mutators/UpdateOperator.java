@@ -1,18 +1,20 @@
 package br.com.pbtech.rules.mutators;
 
-import br.com.pbtech.rules.AbstractMutatorRule;
 import br.com.pbtech.rules.DefaultRuleDefinition;
+import br.com.pbtech.rules.csharp.mutators.CsRule;
+import br.com.pbtech.rules.js.mutators.JsRule;
 import org.sonar.api.rule.RuleKey;
-import org.sonar.api.server.rule.RulesDefinition;
 
 import static br.com.pbtech.constantes.Languages.CSHARP_KEY;
 import static br.com.pbtech.constantes.Languages.JAVASCRIPT_KEY;
 import static br.com.pbtech.constantes.Metricas.*;
 
-public class UpdateOperator extends AbstractMutatorRule {
+public class UpdateOperator implements JsRule, CsRule {
 
     private final RuleKey UPDATE_OPERATOR_JS = RuleKey.of(REPOSITORY_KEY_JS, "stryker.rule.js.update_operator");
     private final RuleKey UPDATE_OPERATOR_CS = RuleKey.of(REPOSITORY_KEY_CS, "stryker.rule.cs.update_operator");
+
+    private final Double GAP = 10.0;
 
     private final String RULE_NAME = "Stryker - Update Operator";
     private final String HTML_DESCRIPTION = "Operador Update Operator: <a href=\"https://stryker-mutator.io/docs/mutation-testing-elements/supported-mutators/#update-operator\">Saiba mais</a>";
@@ -43,5 +45,15 @@ public class UpdateOperator extends AbstractMutatorRule {
     @Override
     public String getRuleName() {
         return this.RULE_NAME;
+    }
+
+    @Override
+    public Double getGap() {
+        return this.GAP;
+    }
+
+    @Override
+    public RuleKey getOperatorCs() {
+        return this.UPDATE_OPERATOR_CS;
     }
 }

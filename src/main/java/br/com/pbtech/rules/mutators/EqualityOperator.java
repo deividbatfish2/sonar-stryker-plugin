@@ -1,18 +1,20 @@
 package br.com.pbtech.rules.mutators;
 
-import br.com.pbtech.rules.AbstractMutatorRule;
 import br.com.pbtech.rules.DefaultRuleDefinition;
+import br.com.pbtech.rules.csharp.mutators.CsRule;
+import br.com.pbtech.rules.js.mutators.JsRule;
 import org.sonar.api.rule.RuleKey;
-import org.sonar.api.server.rule.RulesDefinition;
 
 import static br.com.pbtech.constantes.Languages.CSHARP_KEY;
 import static br.com.pbtech.constantes.Languages.JAVASCRIPT_KEY;
 import static br.com.pbtech.constantes.Metricas.*;
 
-public class EqualityOperator extends AbstractMutatorRule {
+public class EqualityOperator implements JsRule, CsRule {
 
     private final RuleKey EQUALITY_OPERATOR_JS = RuleKey.of(REPOSITORY_KEY_JS, "stryker.rule.js.equality_operator");
     private final RuleKey EQUALITY_OPERATOR_CS = RuleKey.of(REPOSITORY_KEY_CS, "stryker.rule.cs.equality_operator");
+
+    private final Double GAP = 10.0;
 
     private final String RULE_NAME = "Stryker - Equality Operator";
     private final String HTML_DESCRIPTION = "Operador equality operator: <a href=\"https://stryker-mutator.io/docs/mutation-testing-elements/supported-mutators/#equality-operator\">Saiba mais</a>";
@@ -43,5 +45,15 @@ public class EqualityOperator extends AbstractMutatorRule {
     @Override
     public String getRuleName() {
         return this.RULE_NAME;
+    }
+
+    @Override
+    public Double getGap() {
+        return this.GAP;
+    }
+
+    @Override
+    public RuleKey getOperatorCs() {
+        return this.EQUALITY_OPERATOR_CS;
     }
 }

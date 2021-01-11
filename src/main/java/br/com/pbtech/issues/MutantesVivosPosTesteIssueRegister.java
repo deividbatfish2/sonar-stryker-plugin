@@ -2,6 +2,8 @@ package br.com.pbtech.issues;
 
 import br.com.pbtech.model.Mutant;
 import br.com.pbtech.model.MutantStatus;
+import br.com.pbtech.rules.js.mutators.JsRule;
+import br.com.pbtech.rules.js.mutators.JsRules;
 import org.sonar.api.batch.fs.InputFile;
 import org.sonar.api.batch.sensor.SensorContext;
 import org.sonar.api.batch.sensor.issue.NewIssue;
@@ -11,8 +13,6 @@ import java.util.List;
 
 public class MutantesVivosPosTesteIssueRegister {
 
-    private final Double GAP_DEFAULT = 10.0;
-
     public void registrarIssue(SensorContext sensorContext, InputFile file, List<Mutant> mutantes) {
 
         if (!mutantes.stream().anyMatch(mutante -> mutante.getStatus() == MutantStatus.SURVIVED)){
@@ -21,9 +21,11 @@ public class MutantesVivosPosTesteIssueRegister {
 
         mutantes.stream().filter(mutant -> mutant.getStatus() == MutantStatus.SURVIVED)
                 .forEach(mutant -> {
+                    JsRule jsRule = JsRules.getRuleByMutatorName(mutant.getMutatorName());
+
                     NewIssue newIssue = sensorContext.newIssue()
-                            .forRule(mutant.getMutatorName().getRegra().getOperatorJs())
-                            .gap(GAP_DEFAULT);
+                            .forRule(jsRule.getOperatorJs())
+                            .gap(jsRule.getGap());
 
                     NewIssueLocation primaryLocation = newIssue.newLocation()
                             .on(file)
@@ -31,7 +33,7 @@ public class MutantesVivosPosTesteIssueRegister {
                                     mutant.getLocation().getStart().getColumn() -1,
                                     mutant.getLocation().getEnd().getLine(),
                                     mutant.getLocation().getEnd().getColumn() -1 ))
-                            .message(mutant.getMutatorName().getRegra().getRuleName() + " -> Mutação: " + mutant.getReplacement());
+                            .message(jsRule.getRuleName() + " -> Mutação: " + mutant.getReplacement());
 
                     newIssue.at(primaryLocation)
                             .save();

@@ -1,17 +1,20 @@
 package br.com.pbtech.rules.mutators;
 
-import br.com.pbtech.rules.AbstractMutatorRule;
 import br.com.pbtech.rules.DefaultRuleDefinition;
+import br.com.pbtech.rules.csharp.mutators.CsRule;
+import br.com.pbtech.rules.js.mutators.JsRule;
 import org.sonar.api.rule.RuleKey;
 
 import static br.com.pbtech.constantes.Languages.CSHARP_KEY;
 import static br.com.pbtech.constantes.Languages.JAVASCRIPT_KEY;
 import static br.com.pbtech.constantes.Metricas.*;
 
-public class ArrayDeclaration extends AbstractMutatorRule {
+public class ArrayDeclaration implements JsRule, CsRule {
 
     private final RuleKey ARRAY_DECLARATION_JS = RuleKey.of(REPOSITORY_KEY_JS, "stryker.rule.js.array_declaration");
     private final RuleKey ARRAY_DECLARATION_CS = RuleKey.of(REPOSITORY_KEY_CS, "stryker.rule.cs.array_declaration");
+
+    private final Double GAP = 10.0;
 
     private final String RULE_NAME = "Stryker - Array Declaration";
     private final String HTML_DESCRIPTION = "Operador de mutação de arrays: <a href=\"https://stryker-mutator.io/docs/mutation-testing-elements/supported-mutators/#array-declaration\">Saiba mais</a>";
@@ -41,5 +44,15 @@ public class ArrayDeclaration extends AbstractMutatorRule {
     @Override
     public String getRuleName() {
         return this.RULE_NAME;
+    }
+
+    @Override
+    public Double getGap() {
+        return this.GAP;
+    }
+
+    @Override
+    public RuleKey getOperatorCs() {
+        return this.ARRAY_DECLARATION_CS;
     }
 }

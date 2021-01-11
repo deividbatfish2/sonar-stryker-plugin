@@ -1,16 +1,16 @@
 package br.com.pbtech.rules.csharp.mutators;
 
-import br.com.pbtech.rules.AbstractMutatorRule;
 import br.com.pbtech.rules.DefaultRuleDefinition;
 import org.sonar.api.rule.RuleKey;
-import org.sonar.api.server.rule.RulesDefinition;
 
 import static br.com.pbtech.constantes.Languages.CSHARP_KEY;
 import static br.com.pbtech.constantes.Metricas.*;
 
-public class AssignmentExpression extends AbstractMutatorRule {
+public class AssignmentExpression implements CsRule {
 
     private final RuleKey ASSIGNMENT_EXPRESSION = RuleKey.of(REPOSITORY_KEY_CS, "stryker.rule.cs.assignment_expression");
+
+    private final Double GAP = 10.0;
 
     private final String RULE_NAME = "Stryker - Assignment Expression";
     private final String HTML_DESCRIPTION = "Operador de mutação assignment expression: <a href=\"https://stryker-mutator.io/docs/mutation-testing-elements/supported-mutators/#assignment-expression\">Saiba mais</a>";
@@ -28,12 +28,17 @@ public class AssignmentExpression extends AbstractMutatorRule {
     }
 
     @Override
-    public RuleKey getOperatorJs() {
-        return this.ASSIGNMENT_EXPRESSION;
+    public String getRuleName() {
+        return this.RULE_NAME;
     }
 
     @Override
-    public String getRuleName() {
-        return this.RULE_NAME;
+    public Double getGap() {
+        return this.GAP;
+    }
+
+    @Override
+    public RuleKey getOperatorCs() {
+        return this.ASSIGNMENT_EXPRESSION;
     }
 }

@@ -1,18 +1,20 @@
 package br.com.pbtech.rules.mutators;
 
-import br.com.pbtech.rules.AbstractMutatorRule;
 import br.com.pbtech.rules.DefaultRuleDefinition;
+import br.com.pbtech.rules.csharp.mutators.CsRule;
+import br.com.pbtech.rules.js.mutators.JsRule;
 import org.sonar.api.rule.RuleKey;
-import org.sonar.api.server.rule.RulesDefinition;
 
 import static br.com.pbtech.constantes.Languages.CSHARP_KEY;
 import static br.com.pbtech.constantes.Languages.JAVASCRIPT_KEY;
 import static br.com.pbtech.constantes.Metricas.*;
 
-public class StringLiteral extends AbstractMutatorRule {
+public class StringLiteral implements JsRule, CsRule {
 
     private final RuleKey STRING_LITERAL_JS = RuleKey.of(REPOSITORY_KEY_JS, "stryker.rule.js.string_literal");
     private final RuleKey STRING_LITERAL_CS = RuleKey.of(REPOSITORY_KEY_CS, "stryker.rule.cs.string_literal");
+
+    private final Double GAP = 10.0;
 
     private final String RULE_NAME = "Stryker - String Literal";
     private final String HTML_DESCRIPTION = "Operador String Literal: <a href=\"https://stryker-mutator.io/docs/mutation-testing-elements/supported-mutators/#string-literal\">Saiba mais</a>";
@@ -43,5 +45,15 @@ public class StringLiteral extends AbstractMutatorRule {
     @Override
     public String getRuleName() {
         return this.RULE_NAME;
+    }
+
+    @Override
+    public Double getGap() {
+        return this.GAP;
+    }
+
+    @Override
+    public RuleKey getOperatorCs() {
+        return this.STRING_LITERAL_CS;
     }
 }

@@ -1,17 +1,20 @@
 package br.com.pbtech.rules.mutators;
 
-import br.com.pbtech.rules.AbstractMutatorRule;
 import br.com.pbtech.rules.DefaultRuleDefinition;
+import br.com.pbtech.rules.csharp.mutators.CsRule;
+import br.com.pbtech.rules.js.mutators.JsRule;
 import org.sonar.api.rule.RuleKey;
 
 import static br.com.pbtech.constantes.Languages.CSHARP_KEY;
 import static br.com.pbtech.constantes.Languages.JAVASCRIPT_KEY;
 import static br.com.pbtech.constantes.Metricas.*;
 
-public class ArithmeticOperator extends AbstractMutatorRule {
+public class ArithmeticOperator implements JsRule, CsRule {
 
     private final RuleKey OPERATOR_JS = RuleKey.of(REPOSITORY_KEY_JS, "stryker.rule.js.arithmetic_operator");
     private final RuleKey OPERATOR_CS = RuleKey.of(REPOSITORY_KEY_CS, "stryker.rule.cs.arithmetic_operator");
+
+    private final Double GAP = 10.0;
 
     private final String RULE_NAME = "Stryker - Arithmetic Operator";
     private final String HTML_DESCRIPTION = "Operador de mutação artimetica: <a href=\"https://stryker-mutator.io/docs/mutation-testing-elements/supported-mutators/#arithmetic-operator\">Saiba mais</a>";
@@ -42,5 +45,15 @@ public class ArithmeticOperator extends AbstractMutatorRule {
     @Override
     public String getRuleName() {
         return this.RULE_NAME;
+    }
+
+    @Override
+    public Double getGap() {
+        return this.GAP;
+    }
+
+    @Override
+    public RuleKey getOperatorCs() {
+        return this.OPERATOR_CS;
     }
 }

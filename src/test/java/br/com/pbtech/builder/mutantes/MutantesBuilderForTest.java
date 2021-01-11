@@ -50,6 +50,11 @@ public class MutantesBuilderForTest {
         return this;
     }
 
+    public MutantesBuilderForTest withThisMutant(Mutant mutant) {
+        this.mutantes.add(mutant);
+        return this;
+    }
+
     public List<Mutant> build() {
         return this.mutantes;
     }
