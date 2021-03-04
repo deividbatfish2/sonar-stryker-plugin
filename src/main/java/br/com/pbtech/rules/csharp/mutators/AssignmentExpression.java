@@ -13,7 +13,7 @@ public class AssignmentExpression implements CsRule {
     private final Double GAP = 10.0;
 
     private final String RULE_NAME = "Stryker - Assignment Expression";
-    private final String HTML_DESCRIPTION = "Operador de mutação assignment expression: <a href=\"https://stryker-mutator.io/docs/mutation-testing-elements/supported-mutators/#assignment-expression\">Saiba mais</a>";
+    private final String PATH_TO_HTML_DESCRIPTION = "br/com/pbtech/rules/AssignmentExpression.html";
 
     @Override
     public void define(Context context) {
@@ -22,7 +22,9 @@ public class AssignmentExpression implements CsRule {
                 .createRepository(REPOSITORY_KEY_CS, CSHARP_KEY)
                 .setName(REPOSITORY_NAME);
 
-        DefaultRuleDefinition.createDefinition(csharpRepository, ASSIGNMENT_EXPRESSION.rule(), RULE_NAME, HTML_DESCRIPTION);
+        DefaultRuleDefinition defaultRuleDefinition = new DefaultRuleDefinition();
+
+        defaultRuleDefinition.createDefinition(csharpRepository, ASSIGNMENT_EXPRESSION.rule(), RULE_NAME, PATH_TO_HTML_DESCRIPTION);
 
         csharpRepository.done();
     }

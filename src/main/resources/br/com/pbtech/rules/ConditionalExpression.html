@@ -1,0 +1,45 @@
+<div id="CONDITIONAL_EXPRESSION">
+    <h2>Conditional Expression</h2>
+
+    <p>Changes conditionals in statements like if to be true or false</p>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Original</th>
+            <th>Mutated</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><code>for (var i = 0; i &lt; 10; i++) { }</code></td>
+            <td><code>for (var i = 0; false; i++) { }</code> ¹</td>
+        </tr>
+        <tr>
+            <td><code>while (a &gt; b) { }</code></td>
+            <td><code>while (false) { }</code></td>
+        </tr>
+        <tr>
+            <td><code>do { } while (a &gt; b);</code></td>
+            <td><code>do { } while (false);</code></td>
+        </tr>
+        <tr>
+            <td><code>if (a &gt; b) { }</code></td>
+            <td><code>if (true) { }</code></td>
+        </tr>
+        <tr>
+            <td><code>if (a &gt; b) { }</code></td>
+            <td><code>if (false) { }</code></td>
+        </tr>
+        <tr>
+            <td><code>var x = a &gt; b ? 1 : 2;</code></td>
+            <td><code>var x = true ? 1 : 2;</code> ¹</td>
+        </tr>
+        <tr>
+            <td><code>var x = a &gt; b ? 1 : 2;</code></td>
+            <td><code>var x = false ? 1 : 2;</code> ¹</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>see <a href="https://stryker-mutator.io/docs/mutation-testing-elements/supported-mutators/#conditional-expression">Stryker Mutators</a></p>
+</div>

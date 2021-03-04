@@ -13,7 +13,7 @@ public class BlockStatement implements JsRule {
     private final Double GAP = 10.0;
 
     private final String RULE_NAME = "Stryker - Block Statement";
-    private final String HTML_DESCRIPTION = "Operador de mutação block statement: <a href=\"https://stryker-mutator.io/docs/mutation-testing-elements/supported-mutators/#block-statement\">Saiba mais</a>";
+    private final String PATH_TO_HTML_DESCRIPTION = "br/com/pbtech/rules/BlockStatement.html";
 
     @Override
     public void define(Context context) {
@@ -22,7 +22,9 @@ public class BlockStatement implements JsRule {
                 .createRepository(REPOSITORY_KEY_JS, JAVASCRIPT_KEY)
                 .setName(REPOSITORY_NAME);
 
-        DefaultRuleDefinition.createDefinition(jsRepository, BLOCK_STATEMENT.rule(), RULE_NAME, HTML_DESCRIPTION);
+        DefaultRuleDefinition defaultRuleDefinition = new DefaultRuleDefinition();
+
+        defaultRuleDefinition.createDefinition(jsRepository, BLOCK_STATEMENT.rule(), RULE_NAME, PATH_TO_HTML_DESCRIPTION);
 
         jsRepository.done();
     }

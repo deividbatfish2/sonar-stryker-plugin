@@ -1,0 +1,27 @@
+<div id="STRING_LITERAL">
+    <h2>String Literal</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Original</th>
+            <th>Mutated</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><code>"foo"</code> (non-empty string)</td>
+            <td><code>""</code> (empty string)</td>
+        </tr>
+        <tr>
+            <td><code>""</code> (empty string)</td>
+            <td><code>"Stryker was here!"</code></td>
+        </tr>
+        <tr>
+            <td><code>s"foo ${bar}"</code> (string interpolation)</td>
+            <td><code>s""</code> ¹</td>
+        </tr>
+        </tbody>
+    </table>
+    <p>see <a href="https://stryker-mutator.io/docs/mutation-testing-elements/supported-mutators/#string-literal">Stryker Mutators</a></p>
+</div>

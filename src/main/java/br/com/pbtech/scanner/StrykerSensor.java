@@ -16,10 +16,15 @@ import org.sonar.api.utils.log.Loggers;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
+import static br.com.pbtech.constantes.Languages.CSHARP_KEY;
+import static br.com.pbtech.constantes.Languages.JAVASCRIPT_KEY;
 import static br.com.pbtech.constantes.Metricas.REPOSITORY_KEY_JS;
 import static br.com.pbtech.metrics.MutantMetrics.*;
+import static java.util.Arrays.asList;
 
 public class StrykerSensor implements Sensor {
     private final String SENSOR_NAME = "Stryker .Net";
@@ -37,7 +42,8 @@ public class StrykerSensor implements Sensor {
     public void describe(SensorDescriptor sensorDescriptor) {
         sensorDescriptor.name(SENSOR_NAME);
         sensorDescriptor.createIssuesForRuleRepository(REPOSITORY_KEY_JS);
-        //sensorDescriptor.onlyOnLanguages(JAVASCRIPT_KEY);
+        List<String> languages = asList(JAVASCRIPT_KEY, CSHARP_KEY);
+        sensorDescriptor.onlyOnLanguages(languages.stream().toArray(String[]::new));
     }
 
     public void execute(SensorContext sensorContext) {

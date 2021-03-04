@@ -17,7 +17,7 @@ public class UnaryOperator implements JsRule, CsRule {
     private final Double GAP = 10.0;
 
     private final String RULE_NAME = "Stryker - Unary Operator";
-    private final String HTML_DESCRIPTION = "Operador Unary Operator: <a href=\"https://stryker-mutator.io/docs/mutation-testing-elements/supported-mutators/#unary-operator\">Saiba mais</a>";
+    private final String PATH_TO_HTML_DESCRIPTION = "br/com/pbtech/rules/UnaryOperator.html";
 
     @Override
     public void define(Context context) {
@@ -29,9 +29,11 @@ public class UnaryOperator implements JsRule, CsRule {
                 .createRepository(REPOSITORY_KEY_CS, CSHARP_KEY)
                 .setName(REPOSITORY_NAME);
 
-        DefaultRuleDefinition.createDefinition(jsRepository, UNARY_OPERATOR_JS.rule(), RULE_NAME, HTML_DESCRIPTION);
+        DefaultRuleDefinition defaultRuleDefinition = new DefaultRuleDefinition();
 
-        DefaultRuleDefinition.createDefinition(csharpRepository, UNARY_OPERATOR_CS.rule(), RULE_NAME, HTML_DESCRIPTION);
+        defaultRuleDefinition.createDefinition(jsRepository, UNARY_OPERATOR_JS.rule(), RULE_NAME, PATH_TO_HTML_DESCRIPTION);
+
+        defaultRuleDefinition.createDefinition(csharpRepository, UNARY_OPERATOR_CS.rule(), RULE_NAME, PATH_TO_HTML_DESCRIPTION);
 
         jsRepository.done();
         csharpRepository.done();

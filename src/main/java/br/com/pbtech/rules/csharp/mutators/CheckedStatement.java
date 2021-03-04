@@ -14,7 +14,7 @@ public class CheckedStatement implements CsRule {
     private final Double GAP = 10.0;
 
     private final String RULE_NAME = "Stryker - Checked Statement";
-    private final String HTML_DESCRIPTION = "Operador Checked Statement: <a href=\"https://stryker-mutator.io/docs/mutation-testing-elements/supported-mutators/#checked-statement\">Saiba mais</a>";
+    private final String PATH_TO_HTML_DESCRIPTION = "br/com/pbtech/rules/CheckedStatement.html";
 
     @Override
     public void define(Context context) {
@@ -23,7 +23,9 @@ public class CheckedStatement implements CsRule {
                 .createRepository(REPOSITORY_KEY_CS, CSHARP_KEY)
                 .setName(REPOSITORY_NAME);
 
-        DefaultRuleDefinition.createDefinition(csharpRepository, CHECHED_STATEMENT.rule(), RULE_NAME, HTML_DESCRIPTION);
+        DefaultRuleDefinition defaultRuleDefinition = new DefaultRuleDefinition();
+
+        defaultRuleDefinition.createDefinition(csharpRepository, CHECHED_STATEMENT.rule(), RULE_NAME, PATH_TO_HTML_DESCRIPTION);
 
         csharpRepository.done();
     }

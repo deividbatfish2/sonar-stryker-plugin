@@ -10,10 +10,10 @@ import static br.com.pbtech.constantes.Metricas.TAG_TEST_QUALITY;
 
 public class DefaultRuleDefinition {
 
-    public static void createDefinition(NewRepository repository, String rule, String name, String htmlDescription) {
+    public void createDefinition(NewRepository repository, String rule, String name, String pathToHtmlDescription) {
         repository.createRule(rule)
                 .setName(name)
-                .setHtmlDescription(htmlDescription)
+                .setHtmlDescription(getClass().getClassLoader().getResource(pathToHtmlDescription))
                 .setStatus(RuleStatus.READY)
                 .setSeverity(Severity.MAJOR)
                 .setType(RuleType.CODE_SMELL)

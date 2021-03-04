@@ -17,7 +17,7 @@ public class EqualityOperator implements JsRule, CsRule {
     private final Double GAP = 10.0;
 
     private final String RULE_NAME = "Stryker - Equality Operator";
-    private final String HTML_DESCRIPTION = "Operador equality operator: <a href=\"https://stryker-mutator.io/docs/mutation-testing-elements/supported-mutators/#equality-operator\">Saiba mais</a>";
+    private final String PATH_TO_HTML_DESCRIPTION = "br/com/pbtech/rules/EqualityOperator.html";
 
     @Override
     public void define(Context context) {
@@ -29,9 +29,11 @@ public class EqualityOperator implements JsRule, CsRule {
                 .createRepository(REPOSITORY_KEY_CS, CSHARP_KEY)
                 .setName(REPOSITORY_NAME);
 
-        DefaultRuleDefinition.createDefinition(jsRepository, EQUALITY_OPERATOR_JS.rule(), RULE_NAME, HTML_DESCRIPTION);
+        DefaultRuleDefinition defaultRuleDefinition = new DefaultRuleDefinition();
 
-        DefaultRuleDefinition.createDefinition(csharpRepository, EQUALITY_OPERATOR_CS.rule(), RULE_NAME, HTML_DESCRIPTION);
+        defaultRuleDefinition.createDefinition(jsRepository, EQUALITY_OPERATOR_JS.rule(), RULE_NAME, PATH_TO_HTML_DESCRIPTION);
+
+        defaultRuleDefinition.createDefinition(csharpRepository, EQUALITY_OPERATOR_CS.rule(), RULE_NAME, PATH_TO_HTML_DESCRIPTION);
 
         jsRepository.done();
         csharpRepository.done();
