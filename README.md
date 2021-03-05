@@ -6,10 +6,10 @@ To build the project, clone the repository and run this command:
 
 `mvn clean package`
 
-This generates a jar file of the plugin in "__target__" folder.
+This generates a `.jar` file of the plugin in "__target__" folder.
 
 ## Usage
-To use it, copy the .jar to sonar's extensions folder.
+To use it, copy the `.jar` to sonar's extensions folder.
 
 After this, restart de sonar server.
 
