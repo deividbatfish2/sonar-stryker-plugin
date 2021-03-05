@@ -6,14 +6,14 @@ To build the project, clone the repository and run this command:
 
 `mvn clean package`
 
-This generete a jar file of the plugin in "__target__" folder.
+This generates a `.jar` file of the plugin in "__target__" folder.
 
-## Use
-To use, copy the jar to extensions folder of the sonar.
+## Usage
+To use it, copy the `.jar` to sonar's extensions folder.
 
 After this, restart de sonar server.
 
-After restart, create a new sonar quality profile, we recomend copy the sonar profile recommended.
+After restart, create a new sonar quality profile, we recomend to copy the recommended sonar profile.
 
 ![Copy the sonar profile](/docs/img/sonar/copy_sonar_profile.png)
 
@@ -25,7 +25,7 @@ In the new profile select __Activate More__
 
 ![Activate More](/docs/img/sonar/activate_more.png)
 
-The name of all rules of stryker starts with __Stryker__. Activete all.
+The name of all rules of stryker starts with __Stryker__. Activate all.
 
 ![Select Rules](/docs/img/sonar/select_rules.png)
 
@@ -35,7 +35,7 @@ Set the new profile as __Default__
 
 In your project, in the sonar configuration, add the property `'sonar.javascript.stryker.path': '<<path to report json of stryker>>'`
 
-After this, the new analyzes will consider the new rules. The issues will be show in the __Issues__ panel.
+After this, the new analyzes will consider the new rules. The issues will be shown in the __Issues__ pannel.
 
 ![Issues Panel](/docs/img/sonar/issues_panel.png)
 
