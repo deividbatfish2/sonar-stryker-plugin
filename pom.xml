@@ -14,7 +14,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <sonar.apiVersion>RELEASE</sonar.apiVersion>
+        <sonar.apiVersion>7.4</sonar.apiVersion>
         <junit5.vintage.version>5.7.0</junit5.vintage.version>
         <jdk.min.version>1.8</jdk.min.version>
         <maven.compiler.source>8</maven.compiler.source>
